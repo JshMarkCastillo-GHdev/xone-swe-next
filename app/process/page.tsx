@@ -1,18 +1,13 @@
-import {
-  createPlaceholderMetadata,
-  PlaceholderPage,
-} from "@/components/placeholder-page";
+import type { Metadata } from "next";
 
-export const metadata = createPlaceholderMetadata({
+import { ProcessPageContent } from "@/features/process/components/ProcessPageContent";
+import { BRAND_NAME } from "@/lib/brand";
+
+export const metadata: Metadata = {
   title: "Process",
-  description: "See how Xone Software Development delivers projects.",
-});
+  description: `How ${BRAND_NAME} delivers projects from discovery through support.`,
+};
 
 export default function ProcessPage() {
-  return (
-    <PlaceholderPage
-      title="Process"
-      description="Process page content will be ported from xone-swe-web in Week 2."
-    />
-  );
+  return <ProcessPageContent />;
 }

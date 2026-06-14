@@ -1,18 +1,13 @@
-import {
-  createPlaceholderMetadata,
-  PlaceholderPage,
-} from "@/components/placeholder-page";
+import type { Metadata } from "next";
 
-export const metadata = createPlaceholderMetadata({
+import { AboutPageContent } from "@/features/about/components/AboutPageContent";
+import { BRAND_NAME } from "@/lib/brand";
+
+export const metadata: Metadata = {
   title: "About",
-  description: "Learn about Xone Software Development and our team.",
-});
+  description: `Learn about ${BRAND_NAME} — our story, values, and approach.`,
+};
 
 export default function AboutPage() {
-  return (
-    <PlaceholderPage
-      title="About"
-      description="About page content will be ported from xone-swe-web in Week 2."
-    />
-  );
+  return <AboutPageContent />;
 }

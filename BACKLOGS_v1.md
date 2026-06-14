@@ -2,7 +2,7 @@
 
 Prioritized backlog for the **Xone Software Development** Next.js site (`xone-swe-next`).
 
-**Phase:** Week 1 complete — static lead capture shipped; Week 2 page porting next  
+**Phase:** Week 2 complete — homepage + core pages ported; Week 3 legal/SEO next  
 **Plan:** `SPRINT_PLAN_v1.md`  
 **Spec:** `PROJECT_INFO_NEXT.md`
 
@@ -33,7 +33,7 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 |----|----------|------|-------|------|--------|
 | BRD-01 | P0 | Rebrand: **Xone Software Development** | Frontend | 1–2 | In progress |
 | BRD-02 | P0 | Root layout metadata | Frontend | 1 | Done |
-| BRD-03 | P1 | Team carousel with initials avatars | Frontend | 2 | Pending |
+| BRD-03 | P1 | Team carousel with initials avatars | Frontend | 2 | Done |
 | BRD-04 | P1 | Brand kit under `public/assets/XONE/` | Frontend | 1 | Done |
 | BRD-05 | P1 | Color tokens in `globals.css` + `brand.ts` | Frontend | 1 | Done |
 | BRD-06 | P2 | Privacy + Terms (PM copy) | PM + Frontend | 3 | Scaffolded |
@@ -49,14 +49,14 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 | PG-11 | P0 | **`/projects` page** + showcase data | Frontend | 1 | Done |
 | PG-12 | P0 | **Email-only `/contact` page** | Frontend | 1 | Done |
 | PG-13 | P0 | Navbar/footer CTAs; get-started redirect | Frontend | 1 | Done |
-| PG-01 | P0 | Homepage Hero section | Frontend | 2 | Pending |
-| PG-02 | P0 | Homepage MissionSection (Swiper) | Frontend | 2 | Pending |
-| PG-03 | P1 | Homepage Services + ValueProps sections | Frontend | 2 | Pending |
-| PG-04 | P1 | Homepage Process + CTA sections | Frontend | 2 | Pending |
-| PG-05 | P0 | Services page (port from v1) | Frontend | 2 | Pending |
-| PG-06 | P0 | About page | Frontend | 2 | Pending |
-| PG-07 | P0 | Process page | Frontend | 2 | Pending |
-| PG-08 | P1 | Mobile hamburger nav (shadcn Sheet) | Frontend | 2 | Pending |
+| PG-01 | P0 | Homepage Hero section | Frontend | 2 | Done |
+| PG-02 | P0 | Homepage MissionSection (Swiper) | Frontend | 2 | Done |
+| PG-03 | P1 | Homepage Services + ValueProps sections | Frontend | 2 | Done |
+| PG-04 | P1 | Homepage Process + CTA sections | Frontend | 2 | Done |
+| PG-05 | P0 | Services page (port from v1) | Frontend | 2 | Done |
+| PG-06 | P0 | About page | Frontend | 2 | Done |
+| PG-07 | P0 | Process page | Frontend | 2 | Done |
+| PG-08 | P1 | Mobile hamburger nav (shadcn Sheet) | Frontend | 2 | Done |
 
 ---
 
@@ -66,7 +66,7 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 |----|----------|------|-------|------|--------|
 | ARCH-01 | P0 | Root layout: Navbar + Footer | Frontend | 1 | Done |
 | ARCH-02 | P1 | Feature folders under `src/features/*` | Frontend | 1 | Done |
-| ARCH-03 | P1 | shadcn/ui: Button (Input, Card, Sheet Week 2) | Frontend | 1–2 | Partial |
+| ARCH-03 | P1 | shadcn/ui: Button, Input, Card, Sheet | Frontend | 2 | Done |
 
 ---
 

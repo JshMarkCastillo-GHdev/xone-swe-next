@@ -84,11 +84,11 @@ Port marketing pages and homepage sections from `xone-swe-web`.
 
 ### Week 2 Exit Criteria
 
-- [ ] Homepage renders all 6 sections without horizontal scroll at 375px
-- [ ] Services, About, Process pages match v1 content structure
-- [ ] Mobile navigation works below `md` breakpoint
-- [ ] No decorative asset 404s (remove or replace broken paths)
-- [ ] Email CTAs present on homepage and key pages
+- [x] Homepage renders all 6 sections without horizontal scroll at 375px
+- [x] Services, About, Process pages match v1 content structure
+- [x] Mobile navigation works below `md` breakpoint
+- [x] No decorative asset 404s (removed missing v1 image paths)
+- [x] Email CTAs present on homepage and key pages
 
 ---
 
@@ -172,7 +172,7 @@ Production deploy, performance pass, sign-off.
 | Week | Phase | Milestone |
 |------|-------|-----------|
 | **Week 1** | Phase 0 + Phase 1 | App on :5142, projects + email contact, CI green |
-| **Week 2** | Phase 2 (pages) | Homepage + Services/About/Process ported |
+| **Week 2** | Phase 2 (pages) | Homepage + Services/About/Process ported (**done**) |
 | **Week 3** | Phase 2 + Phase 3 | Legal + SEO + real project content |
 | **Week 4** | Phase 3 | Vercel deploy + QA sign-off |
 

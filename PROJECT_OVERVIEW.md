@@ -16,8 +16,8 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 
 | Area | Status |
 |------|--------|
-| Next.js bootstrap | **Done (Week 1 / Phase 0)** |
-| App Router routes | All marketing + legal pages scaffolded; **`/projects` + email contact live** |
+| Next.js bootstrap | **Done** |
+| App Router routes | **Done** — homepage + Services/About/Process ported |
 | Brand assets | Copied to `public/assets/XONE/xone_brand_kit/` |
 | Lead capture | **Email-only** + `/projects` — no POST APIs in v1 |
 | API | `GET /api/health` only |
@@ -45,7 +45,7 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 | Week | Focus |
 |------|-------|
 | Week 1 | Bootstrap + projects page + email contact (**done**) |
-| Week 2 | Homepage sections + Services/About/Process pages |
+| Week 2 | Homepage sections + Services/About/Process pages (**done**) |
 | Week 3 | Legal copy, SEO, PM project case studies |
 | Week 4 | Vercel deploy + QA sign-off |
 
