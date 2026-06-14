@@ -129,7 +129,7 @@ Production deploy, performance pass, sign-off.
 | Production smoke matrix (`PROJECT_INFO_NEXT.md` §10) | QA | QA-05 | 4h |
 | Lighthouse baseline (performance + a11y) | QA | PERF-06 | 3h |
 | Image optimization pass (WebP, sizing) | Frontend | PERF-02 | 4h |
-| README + `.env.example` final review | Fullstack | FND-08 | 2h |
+| README + `.env.example` + `DEPLOY.md` final review | Fullstack | FND-08 | 2h | Done |
 | PM stakeholder demo + acceptance | PM | — | 2h |
 | Tech Lead security review pre-deploy | Tech Lead | SEC-04 | 2h |
 | Retrospective; groom v1.1 backlog (form APIs) | PM | — | 2h |

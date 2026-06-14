@@ -26,7 +26,7 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 | Projects portfolio | **Done** — case-study style showcase content (Week 3) |
 | API | `GET /api/health` only |
 | CI/CD | GitHub Actions: lint, test, build |
-| Deployment | Vercel — Week 4 |
+| Deployment | **Week 4 — docs ready; Vercel deploy pending** |
 
 **Source reference:** `xone-swe-web` (Vite SPA + Express) — read-only; port behavior, do not migrate in-place.
 
@@ -70,8 +70,20 @@ Role workflows: `TEAM_INSTRUCTIONS.md`
 
 ## Open Decisions
 
-1. **Production domain** — TBD before Week 4 deploy
+1. **Production domain** — set in Vercel + `SITE_URL` before final sign-off (**your action**)
 2. **v1.1 forms** — if/when to add POST APIs, rate limit provider, webhook
+
+## Deployment status
+
+| Step | Status |
+|------|--------|
+| Local build + CI | Ready |
+| `DEPLOY.md` + README | **Done** |
+| Vercel project connected | **Pending — you** |
+| `SITE_URL` in Vercel | **Pending — you** |
+| Custom domain | **Optional — you** |
+| Post-deploy QA checklist | **Pending — you** (see `DEPLOY.md`) |
+| PM + Tech Lead sign-off | **Pending** |
 
 ## Success Criteria
 
@@ -87,3 +99,4 @@ Matches `PROJECT_INFO_NEXT.md` §17: all routes live (including `/projects`), em
 | `SPRINT_PLAN_v1.md` | Week-by-week plan |
 | `BACKLOGS_v1.md` | Prioritized backlog |
 | `README.md` | Local setup and commands |
+| `DEPLOY.md` | Vercel setup, env vars, post-deploy QA checklist |

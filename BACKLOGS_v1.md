@@ -2,7 +2,7 @@
 
 Prioritized backlog for the **Xone Software Development** Next.js site (`xone-swe-next`).
 
-**Phase:** Week 3 complete — legal pages, SEO, security headers, project case studies  
+**Phase:** Week 4 — deploy docs ready; Vercel connect + production deploy pending (your action)  
 **Plan:** `SPRINT_PLAN_v1.md`  
 **Spec:** `PROJECT_INFO_NEXT.md`
 
@@ -23,7 +23,7 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 | FND-05 | P1 | README bootstrap instructions | Fullstack | 1 | Done |
 | FND-06 | P1 | CI: lint → test → `next build` | Fullstack | 1 | Done |
 | FND-07 | P2 | `/home` → `/`, `/get-started` → `/projects` redirects | Fullstack | 1 | Done |
-| FND-08 | P2 | Document Vercel env setup in README | Fullstack | 4 | Pending |
+| FND-08 | P2 | Document Vercel env setup in README + DEPLOY.md | Fullstack | 4 | Done |
 
 ---
 

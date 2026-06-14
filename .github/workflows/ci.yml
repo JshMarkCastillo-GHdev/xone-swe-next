@@ -38,5 +38,6 @@ jobs:
       - name: Production build
         run: npm run build
         env:
+          SITE_URL: https://example.com
           RATE_LIMIT_WINDOW_MS: 900000
           RATE_LIMIT_MAX: 10
