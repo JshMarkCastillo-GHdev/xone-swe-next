@@ -36,14 +36,14 @@ All three must pass (matches GitHub Actions CI).
 2. **Add New → Project** → import this repository (`xone-swe-next`).
 3. Confirm project settings:
 
-| Setting | Value |
-|---------|--------|
-| **Framework Preset** | Next.js (auto-detected) |
-| **Root Directory** | `.` (repo root — **not** a subfolder) |
-| **Build Command** | `next build` (default) |
-| **Output Directory** | Next.js default (leave automatic) |
-| **Install Command** | `npm ci` or `npm install` |
-| **Node.js Version** | **22.x** (Project Settings → General) |
+| Setting              | Value                                 |
+| -------------------- | ------------------------------------- |
+| **Framework Preset** | Next.js (auto-detected)               |
+| **Root Directory**   | `.` (repo root — **not** a subfolder) |
+| **Build Command**    | `next build` (default)                |
+| **Output Directory** | Next.js default (leave automatic)     |
+| **Install Command**  | `npm ci` or `npm install`             |
+| **Node.js Version**  | **22.x** (Project Settings → General) |
 
 4. Click **Deploy** (first build may use preview URL only).
 
@@ -55,17 +55,17 @@ All three must pass (matches GitHub Actions CI).
 
 In **Vercel → Project → Settings → Environment Variables**, add:
 
-| Variable | Required | Environments | Example |
-|----------|----------|--------------|---------|
+| Variable   | Required                 | Environments                    | Example                        |
+| ---------- | ------------------------ | ------------------------------- | ------------------------------ |
 | `SITE_URL` | **Strongly recommended** | Production (+ Preview optional) | `https://www.xonesoftware.dev` |
 
 **Why `SITE_URL` matters:** `app/sitemap.ts`, `app/robots.ts`, and Open Graph metadata use `getSiteUrl()` from `src/lib/site.ts`. Without it, production may fall back to `VERCEL_URL` (works on `*.vercel.app`) but **custom domains need the explicit canonical URL**.
 
 **Not required for v1:**
 
-| Variable | Notes |
-|----------|--------|
-| `RATE_LIMIT_*` | v1.1 form APIs only |
+| Variable              | Notes               |
+| --------------------- | ------------------- |
+| `RATE_LIMIT_*`        | v1.1 form APIs only |
 | `CONTACT_WEBHOOK_URL` | v1.1 form APIs only |
 
 Never add secrets with a `NEXT_PUBLIC_` prefix unless they are intentionally browser-safe.
@@ -94,37 +94,37 @@ Replace `BASE` with your production URL (e.g. `https://your-app.vercel.app` or c
 
 ### Routes (mobile 375px + desktop 1280px)
 
-| Check | URL | Pass |
-|-------|-----|------|
-| Homepage | `BASE/` | ☐ |
-| Projects | `BASE/projects` | ☐ |
-| Services | `BASE/services` | ☐ |
-| About | `BASE/about` | ☐ |
-| Process | `BASE/process` | ☐ |
-| Contact | `BASE/contact` | ☐ |
-| Privacy | `BASE/privacy` | ☐ |
-| Terms | `BASE/terms` | ☐ |
-| Legacy redirect | `BASE/get-started` → `/projects` | ☐ |
-| Legacy redirect | `BASE/home` → `/` | ☐ |
+| Check           | URL                              | Pass |
+| --------------- | -------------------------------- | ---- |
+| Homepage        | `BASE/`                          | ☐    |
+| Projects        | `BASE/projects`                  | ☐    |
+| Services        | `BASE/services`                  | ☐    |
+| About           | `BASE/about`                     | ☐    |
+| Process         | `BASE/process`                   | ☐    |
+| Contact         | `BASE/contact`                   | ☐    |
+| Privacy         | `BASE/privacy`                   | ☐    |
+| Terms           | `BASE/terms`                     | ☐    |
+| Legacy redirect | `BASE/get-started` → `/projects` | ☐    |
+| Legacy redirect | `BASE/home` → `/`                | ☐    |
 
 ### Lead capture (email-only v1)
 
-| Check | Pass |
-|-------|------|
-| Contact page shows `hello@xonesoftware.dev` | ☐ |
-| `mailto:` link opens mail client (or prompts) | ☐ |
-| Projects page email CTAs work | ☐ |
-| Homepage CTA → Projects + Email | ☐ |
+| Check                                         | Pass |
+| --------------------------------------------- | ---- |
+| Contact page shows `hello@xonesoftware.dev`   | ☐    |
+| `mailto:` link opens mail client (or prompts) | ☐    |
+| Projects page email CTAs work                 | ☐    |
+| Homepage CTA → Projects + Email               | ☐    |
 
 ### SEO & infra
 
-| Check | URL / command | Pass |
-|-------|---------------|------|
-| Health API | `curl BASE/api/health` → `{ "success": true, "status": "ok" }` | ☐ |
-| Sitemap | `BASE/sitemap.xml` lists marketing routes | ☐ |
-| Robots | `BASE/robots.txt` references sitemap; disallows `/api/` | ☐ |
-| Favicon | Browser tab shows Xone icon | ☐ |
-| OG tags | Share debugger / view-source on homepage | ☐ |
+| Check      | URL / command                                                  | Pass |
+| ---------- | -------------------------------------------------------------- | ---- |
+| Health API | `curl BASE/api/health` → `{ "success": true, "status": "ok" }` | ☐    |
+| Sitemap    | `BASE/sitemap.xml` lists marketing routes                      | ☐    |
+| Robots     | `BASE/robots.txt` references sitemap; disallows `/api/`        | ☐    |
+| Favicon    | Browser tab shows Xone icon                                    | ☐    |
+| OG tags    | Share debugger / view-source on homepage                       | ☐    |
 
 ### Security headers (sample)
 
@@ -144,11 +144,11 @@ Run Lighthouse on **Homepage** and **Contact** (mobile + desktop). Record scores
 
 ## YOUR ACTION — Step 5: Sign-off
 
-| Role | Task |
-|------|------|
-| **PM** | Stakeholder demo on production URL; accept `PROJECT_INFO_NEXT.md` §17 criteria |
-| **Tech Lead** | Confirm security headers + env strategy on production |
-| **PM** | Retrospective; groom v1.1 backlog (form APIs) if needed |
+| Role          | Task                                                                           |
+| ------------- | ------------------------------------------------------------------------------ |
+| **PM**        | Stakeholder demo on production URL; accept `PROJECT_INFO_NEXT.md` §17 criteria |
+| **Tech Lead** | Confirm security headers + env strategy on production                          |
+| **PM**        | Retrospective; groom v1.1 backlog (form APIs) if needed                        |
 
 > **Owner:** PM + Tech Lead
 
@@ -156,13 +156,13 @@ Run Lighthouse on **Homepage** and **Contact** (mobile + desktop). Record scores
 
 ## Troubleshooting
 
-| Issue | Fix |
-|-------|-----|
-| Sitemap shows `localhost:5142` | Set `SITE_URL` in Vercel and redeploy |
-| OG preview wrong URL | Same — `SITE_URL` + redeploy |
-| Build fails on Vercel | Match Node 22.x; run `npm run build` locally first |
-| 404 on routes | Ensure Root Directory is `.` not a monorepo subfolder |
-| CI fails on GitHub | Fix lint/test/build locally; push again |
+| Issue                          | Fix                                                   |
+| ------------------------------ | ----------------------------------------------------- |
+| Sitemap shows `localhost:5142` | Set `SITE_URL` in Vercel and redeploy                 |
+| OG preview wrong URL           | Same — `SITE_URL` + redeploy                          |
+| Build fails on Vercel          | Match Node 22.x; run `npm run build` locally first    |
+| 404 on routes                  | Ensure Root Directory is `.` not a monorepo subfolder |
+| CI fails on GitHub             | Fix lint/test/build locally; push again               |
 
 ---
 

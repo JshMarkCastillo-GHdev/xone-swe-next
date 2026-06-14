@@ -1,8 +1,4 @@
-import {
-  BsCheckCircle,
-  BsLightning,
-  BsPersonCircle,
-} from "react-icons/bs";
+import { BsCheckCircle, BsLightning, BsPersonCircle } from "react-icons/bs";
 import { RiRocketLine, RiUserLine } from "react-icons/ri";
 
 const valueProps = [

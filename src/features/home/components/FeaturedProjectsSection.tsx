@@ -41,9 +41,7 @@ export function FeaturedProjectsSection() {
               key={project.id}
               className="motion-safe:animate-fade-in-up"
               style={
-                index > 0
-                  ? { animationDelay: `${index * 80}ms` }
-                  : undefined
+                index > 0 ? { animationDelay: `${index * 80}ms` } : undefined
               }
             >
               <ProjectCard project={project} variant="compact" />

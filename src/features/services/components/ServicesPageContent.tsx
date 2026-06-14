@@ -21,8 +21,8 @@ export function ServicesPageContent() {
             Our Services
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
-            {BRAND_NAME} delivers end-to-end digital solutions — from
-            automation and design to production-ready web and mobile apps.
+            {BRAND_NAME} delivers end-to-end digital solutions — from automation
+            and design to production-ready web and mobile apps.
           </p>
         </header>
 

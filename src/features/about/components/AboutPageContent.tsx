@@ -2,12 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { buttonVariants } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BRAND_NAME, BRAND_SHORT, brandAssets } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
@@ -45,8 +40,8 @@ export function AboutPageContent() {
             About {BRAND_SHORT}
           </h1>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-muted-foreground">
-            {BRAND_NAME} is a forward-thinking software studio focused on
-            system generation, UI/UX design, and web and mobile application
+            {BRAND_NAME} is a forward-thinking software studio focused on system
+            generation, UI/UX design, and web and mobile application
             development.
           </p>
         </header>
@@ -56,15 +51,15 @@ export function AboutPageContent() {
             Our story
           </h2>
           <p className="mb-4 leading-relaxed text-muted-foreground">
-            We started {BRAND_SHORT} with a simple belief: technology should
-            be powerful, accessible, and designed with real users in mind. Too
-            many businesses struggle with fragmented tools, outdated
-            interfaces, and systems that do not scale.
+            We started {BRAND_SHORT} with a simple belief: technology should be
+            powerful, accessible, and designed with real users in mind. Too many
+            businesses struggle with fragmented tools, outdated interfaces, and
+            systems that do not scale.
           </p>
           <p className="leading-relaxed text-muted-foreground">
             Our team bridges that gap — combining product thinking, design
-            craft, and engineering discipline to deliver digital solutions
-            that make work easier and growth sustainable.
+            craft, and engineering discipline to deliver digital solutions that
+            make work easier and growth sustainable.
           </p>
         </section>
 
@@ -91,11 +86,14 @@ export function AboutPageContent() {
             Ready to work together?
           </h2>
           <p className="mb-6 text-muted-foreground">
-            Learn how we plan, build, and deliver — or reach out to discuss
-            your next project.
+            Learn how we plan, build, and deliver — or reach out to discuss your
+            next project.
           </p>
           <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <Link href="/process" className={cn(buttonVariants({ size: "lg" }))}>
+            <Link
+              href="/process"
+              className={cn(buttonVariants({ size: "lg" }))}
+            >
               See our process
             </Link>
             <Link

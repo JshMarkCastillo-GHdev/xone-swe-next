@@ -21,7 +21,10 @@ export function HomeCtaSection() {
         </p>
         <a
           href={buildContactMailto("Project inquiry")}
-          className={cn(buttonVariants({ size: "lg" }), "mt-8 inline-flex w-full sm:w-auto")}
+          className={cn(
+            buttonVariants({ size: "lg" }),
+            "mt-8 inline-flex w-full sm:w-auto",
+          )}
         >
           Email us
         </a>

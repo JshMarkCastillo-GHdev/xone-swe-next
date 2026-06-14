@@ -145,22 +145,22 @@ Role-based instructions for the **Xone Software Development** Next.js marketing 
 2. Verify production build (`npm run build` + `npm run start`) not only dev server
 3. Test email links (`mailto:`, `tel:`) on Contact and Projects pages
 4. Test `/get-started` redirect to `/projects`
-4. Confirm no console errors on primary routes
-5. Block release if secrets appear in client bundle or `.env` is committed
-6. Confirm GitHub Actions CI is green on the shared active branch before sign-off
-7. On Vercel: verify `GET /api/health`, email CTAs, and footer legal links
+5. Confirm no console errors on primary routes
+6. Block release if secrets appear in client bundle or `.env` is committed
+7. Confirm GitHub Actions CI is green on the shared active branch before sign-off
+8. On Vercel: verify `GET /api/health`, email CTAs, and footer legal links
 
 **Test priorities (bootstrap / Phase 0–2)**
 
-| Priority | Area |
-|----------|------|
-| P0 | App builds and starts (`npm run dev`, `npm run build`) |
-| P0 | All nav links resolve to real App Router pages |
-| P1 | Homepage renders on mobile without horizontal scroll |
-| P1 | Images load from `public/assets/` |
-| P1 | `GET /api/health` returns `{ success: true, status: "ok" }` |
-| P2 | Email CTAs and Projects page on mobile/desktop |
-| P2 | Lighthouse performance/accessibility baseline |
+| Priority | Area                                                        |
+| -------- | ----------------------------------------------------------- |
+| P0       | App builds and starts (`npm run dev`, `npm run build`)      |
+| P0       | All nav links resolve to real App Router pages              |
+| P1       | Homepage renders on mobile without horizontal scroll        |
+| P1       | Images load from `public/assets/`                           |
+| P1       | `GET /api/health` returns `{ success: true, status: "ok" }` |
+| P2       | Email CTAs and Projects page on mobile/desktop              |
+| P2       | Lighthouse performance/accessibility baseline               |
 
 ---
 
@@ -179,14 +179,14 @@ Role-based instructions for the **Xone Software Development** Next.js marketing 
 
 Each teammate commits their own work to the **shared active branch**. Use **brief, role-scoped messages** in imperative mood (`add`, `fix`, `update`, `docs`). One logical change per commit when practical.
 
-| Role | When to commit | Example commit messages |
-|------|----------------|-------------------------|
-| **PM** | Backlog, sprint plan, or spec updates | `docs: update Phase 2 acceptance criteria` · `docs: reprioritize contact form in backlog` |
-| **Tech Lead** | AGENTS.md, architecture, security, review-driven fixes | `docs: clarify NEXT_PUBLIC env rules` · `fix: enforce rate limit on contact route` |
-| **Fullstack** | Bootstrap, README, env, API + UI wiring, CI | `chore: bootstrap Next.js app with Turbopack` · `feat: wire contact form to POST /api/contact` |
-| **Backend** | Route Handlers, validation, rate limit, webhooks | `feat: add Zod-validated contact route handler` · `fix: return generic error on webhook failure` |
-| **Frontend** | Pages, components, rebrand, assets | `feat: add Xone-branded services page` · `fix: mobile hero overflow on homepage` |
-| **QA** | Test docs, fixtures, or automation only | `test: add contact form validation cases` · `docs: record Vercel smoke test results` |
+| Role          | When to commit                                         | Example commit messages                                                                          |
+| ------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| **PM**        | Backlog, sprint plan, or spec updates                  | `docs: update Phase 2 acceptance criteria` · `docs: reprioritize contact form in backlog`        |
+| **Tech Lead** | AGENTS.md, architecture, security, review-driven fixes | `docs: clarify NEXT_PUBLIC env rules` · `fix: enforce rate limit on contact route`               |
+| **Fullstack** | Bootstrap, README, env, API + UI wiring, CI            | `chore: bootstrap Next.js app with Turbopack` · `feat: wire contact form to POST /api/contact`   |
+| **Backend**   | Route Handlers, validation, rate limit, webhooks       | `feat: add Zod-validated contact route handler` · `fix: return generic error on webhook failure` |
+| **Frontend**  | Pages, components, rebrand, assets                     | `feat: add Xone-branded services page` · `fix: mobile hero overflow on homepage`                 |
+| **QA**        | Test docs, fixtures, or automation only                | `test: add contact form validation cases` · `docs: record Vercel smoke test results`             |
 
 **Format:** `<type>: <short summary>` — types: `feat`, `fix`, `docs`, `chore`, `test`, `refactor`.
 
@@ -202,12 +202,12 @@ Each teammate commits their own work to the **shared active branch**. Use **brie
 
 **Test expectations by change type**
 
-| Change | Required tests |
-|--------|----------------|
-| New page or feature module | Component or smoke tests for main render paths and key interactions |
-| Form or validation logic | Unit tests for valid input, invalid input, and edge cases |
-| Route Handler or service | Unit tests for validator, service, and handler; mock external services |
-| Utility or mapper | Pure function unit tests |
+| Change                      | Required tests                                                                  |
+| --------------------------- | ------------------------------------------------------------------------------- |
+| New page or feature module  | Component or smoke tests for main render paths and key interactions             |
+| Form or validation logic    | Unit tests for valid input, invalid input, and edge cases                       |
+| Route Handler or service    | Unit tests for validator, service, and handler; mock external services          |
+| Utility or mapper           | Pure function unit tests                                                        |
 | Docs-only (`docs:` commits) | Lint if markdown tooling applies; tests not required unless docs accompany code |
 
 ### Definition of Done
@@ -224,22 +224,22 @@ Each teammate commits their own work to the **shared active branch**. Use **brie
 
 ### CI/CD (GitHub Actions + Vercel)
 
-| Layer | Trigger | What it runs |
-|-------|---------|--------------|
-| **CI** (`ci.yml`) | Every push and pull request | `npm run lint` → `npm run test` → `npm run build` (repo root) |
-| **CD** (Vercel) | Push/merge to `main` (Vercel Git integration) | Production deploy after CI green; env vars in Vercel dashboard |
+| Layer             | Trigger                                       | What it runs                                                   |
+| ----------------- | --------------------------------------------- | -------------------------------------------------------------- |
+| **CI** (`ci.yml`) | Every push and pull request                   | `npm run lint` → `npm run test` → `npm run build` (repo root)  |
+| **CD** (Vercel)   | Push/merge to `main` (Vercel Git integration) | Production deploy after CI green; env vars in Vercel dashboard |
 
 **No GitHub Pages workflow.** App Router handles routing; do not add SPA rewrite rules.
 
 **Roles**
 
-| Role | CI/CD responsibility |
-|------|----------------------|
-| **Fullstack** | Maintain `ci.yml`; connect Vercel project; document env vars in `.env.example` and README |
-| **Tech Lead** | Approve workflow, `next.config.ts` security headers, and Vercel env changes |
-| **Frontend / Backend** | Ensure new features include tests so CI stays green |
-| **QA** | Treat red CI as a release blocker; run `PROJECT_INFO_NEXT.md` §10 checklist after Vercel deploy |
-| **PM** | Track infra backlog items; coordinate deploy sign-off with QA |
+| Role                   | CI/CD responsibility                                                                            |
+| ---------------------- | ----------------------------------------------------------------------------------------------- |
+| **Fullstack**          | Maintain `ci.yml`; connect Vercel project; document env vars in `.env.example` and README       |
+| **Tech Lead**          | Approve workflow, `next.config.ts` security headers, and Vercel env changes                     |
+| **Frontend / Backend** | Ensure new features include tests so CI stays green                                             |
+| **QA**                 | Treat red CI as a release blocker; run `PROJECT_INFO_NEXT.md` §10 checklist after Vercel deploy |
+| **PM**                 | Track infra backlog items; coordinate deploy sign-off with QA                                   |
 
 **Example commit messages:** `ci: add lint and build workflow` · `ci: fix vitest path on Ubuntu` · `chore: document Vercel env setup`
 
@@ -251,12 +251,12 @@ Each teammate commits their own work to the **shared active branch**. Use **brie
 
 ### Document Map
 
-| Question | Document |
-|----------|----------|
-| Full Next.js spec and porting map | `PROJECT_INFO_NEXT.md` |
-| How do I run the project? | `README.md` (create during bootstrap) |
-| What are the coding rules? | `AGENTS.md` |
-| What should I work on next? | `BACKLOGS_v1.md`, `SPRINT_PLAN_v1.md` |
-| What is the project status? | `PROJECT_OVERVIEW.md` (when created) |
-| v1 source to port from | `xone-swe-web` repo (read-only) |
+| Question                                | Document                                             |
+| --------------------------------------- | ---------------------------------------------------- |
+| Full Next.js spec and porting map       | `PROJECT_INFO_NEXT.md`                               |
+| How do I run the project?               | `README.md` (create during bootstrap)                |
+| What are the coding rules?              | `AGENTS.md`                                          |
+| What should I work on next?             | `BACKLOGS_v1.md`, `SPRINT_PLAN_v1.md`                |
+| What is the project status?             | `PROJECT_OVERVIEW.md` (when created)                 |
+| v1 source to port from                  | `xone-swe-web` repo (read-only)                      |
 | What did the original authors document? | `Technical Documentation` in source repo (read-only) |

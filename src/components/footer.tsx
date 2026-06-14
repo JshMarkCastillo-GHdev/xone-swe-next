@@ -10,7 +10,12 @@ type FooterProps = {
 
 export function Footer({ className }: FooterProps) {
   return (
-    <footer className={cn("border-t border-border bg-xone-navy text-xone-light", className)}>
+    <footer
+      className={cn(
+        "border-t border-border bg-xone-navy text-xone-light",
+        className,
+      )}
+    >
       <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-3">
         <div className="space-y-4">
           <Image

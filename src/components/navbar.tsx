@@ -76,10 +76,7 @@ export function Navbar({ className }: NavbarProps) {
           />
         </Link>
 
-        <nav
-          aria-label="Primary"
-          className="hidden items-center gap-7 lg:flex"
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}

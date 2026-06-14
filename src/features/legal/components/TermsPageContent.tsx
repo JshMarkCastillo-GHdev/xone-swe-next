@@ -71,7 +71,7 @@ export function TermsPageContent() {
           id: "changes",
           title: "Changes to these Terms",
           paragraphs: [
-            "We may revise these Terms from time to time. Material changes will be reflected by updating the \"Last updated\" date. Your continued use of the site after changes become effective constitutes acceptance of the revised Terms.",
+            'We may revise these Terms from time to time. Material changes will be reflected by updating the "Last updated" date. Your continued use of the site after changes become effective constitutes acceptance of the revised Terms.',
           ],
         },
         {

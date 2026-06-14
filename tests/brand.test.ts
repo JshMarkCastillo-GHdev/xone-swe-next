@@ -1,9 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import {
-  buildContactMailto,
-  CONTACT_EMAIL,
-} from "@/lib/brand";
+import { buildContactMailto, CONTACT_EMAIL } from "@/lib/brand";
 import { projects } from "@/features/projects/data/projects";
 
 describe("buildContactMailto", () => {

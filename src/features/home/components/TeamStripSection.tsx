@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { TeamMemberAvatar } from "@/components/team-member-avatar";
+import { TeamMemberSocialLinks } from "@/components/team-member-social-links";
 import { teamMembers } from "@/lib/team-members";
 import { BRAND_SHORT } from "@/lib/brand";
 
@@ -22,8 +23,8 @@ export function TeamStripSection() {
             Engineers you will work with
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            {BRAND_SHORT} is a small, senior-led team — no hand-offs to anonymous
-            contractors.
+            {BRAND_SHORT} is a small, senior-led team — no hand-offs to
+            anonymous contractors.
           </p>
         </div>
 
@@ -45,12 +46,16 @@ export function TeamStripSection() {
               <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                 {member.role}
               </p>
+              <TeamMemberSocialLinks member={member} />
             </li>
           ))}
         </ul>
 
         <p className="mt-8 text-center text-sm text-muted-foreground sm:text-left">
-          <Link href="/about" className="font-medium text-xone-violet hover:underline">
+          <Link
+            href="/about"
+            className="font-medium text-xone-violet hover:underline"
+          >
             Learn more about {BRAND_SHORT}
           </Link>
         </p>

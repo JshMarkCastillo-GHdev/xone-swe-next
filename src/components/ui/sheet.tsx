@@ -96,10 +96,4 @@ function SheetTitle({ className, ...props }: SheetPrimitive.Title.Props) {
   );
 }
 
-export {
-  Sheet,
-  SheetTrigger,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-};
+export { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle };

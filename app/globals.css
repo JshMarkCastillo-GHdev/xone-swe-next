@@ -161,7 +161,12 @@ body {
   }
 
   .text-gradient-xone {
-    background-image: linear-gradient(135deg, #1a1a2e 0%, #533bda 55%, #22d3ee 100%);
+    background-image: linear-gradient(
+      135deg,
+      #1a1a2e 0%,
+      #533bda 55%,
+      #22d3ee 100%
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;

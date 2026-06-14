@@ -23,7 +23,9 @@ function resolveAbsoluteUrl(path: string): string {
 }
 
 /** Shared Open Graph image — PNG for broad platform support. */
-export function getDefaultOgImage(): NonNullable<Metadata["openGraph"]>["images"] {
+export function getDefaultOgImage(): NonNullable<
+  Metadata["openGraph"]
+>["images"] {
   return [
     {
       url: brandAssets.iconPng,

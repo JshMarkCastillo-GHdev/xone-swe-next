@@ -74,7 +74,7 @@ export function PrivacyPageContent() {
           id: "changes",
           title: "Changes to this policy",
           paragraphs: [
-            "We may update this Privacy Policy to reflect product, legal, or operational changes. The \"Last updated\" date at the top will change when we publish revisions. Continued use of the site after updates constitutes acceptance of the revised policy.",
+            'We may update this Privacy Policy to reflect product, legal, or operational changes. The "Last updated" date at the top will change when we publish revisions. Continued use of the site after updates constitutes acceptance of the revised policy.',
           ],
         },
       ]}

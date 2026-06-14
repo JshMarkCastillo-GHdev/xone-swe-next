@@ -68,7 +68,9 @@ export function ProcessSection() {
                   </span>
                 )}
               </div>
-              <h3 className="mb-3 text-lg font-bold sm:text-xl">{item.title}</h3>
+              <h3 className="mb-3 text-lg font-bold sm:text-xl">
+                {item.title}
+              </h3>
               <p className="text-center text-sm text-muted-foreground">
                 {item.description}
               </p>

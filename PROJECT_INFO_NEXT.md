@@ -35,17 +35,17 @@
 
 ## 2. Target tech stack (non-negotiable)
 
-| Layer | Choice |
-|-------|--------|
-| Framework | **Next.js** (App Router) |
-| Language | **TypeScript** (`strict: true`) |
-| Dev bundler | **Turbopack** (`next dev --turbo`) |
-| Styling | **Tailwind CSS v4** + **shadcn/ui** |
-| Typography | **Geist Sans** (`geist` or `@fontsource-variable/geist`) — do not add Poppins/Inter |
-| Validation | **Zod** at API boundary (shared server schemas) |
-| API | **Next.js Route Handlers** (`app/api/**/route.ts`) — no separate Express server |
-| Hosting | **Vercel only** (single project, repo root = app root) |
-| CI | GitHub Actions: lint, test, `next build` |
+| Layer       | Choice                                                                              |
+| ----------- | ----------------------------------------------------------------------------------- |
+| Framework   | **Next.js** (App Router)                                                            |
+| Language    | **TypeScript** (`strict: true`)                                                     |
+| Dev bundler | **Turbopack** (`next dev --turbo`)                                                  |
+| Styling     | **Tailwind CSS v4** + **shadcn/ui**                                                 |
+| Typography  | **Geist Sans** (`geist` or `@fontsource-variable/geist`) — do not add Poppins/Inter |
+| Validation  | **Zod** at API boundary (shared server schemas)                                     |
+| API         | **Next.js Route Handlers** (`app/api/**/route.ts`) — no separate Express server     |
+| Hosting     | **Vercel only** (single project, repo root = app root)                              |
+| CI          | GitHub Actions: lint, test, `next build`                                            |
 
 **Do not introduce:** Railway, separate `BackEnd/` folder, `VITE_*` env vars, React Router, Vite.
 
@@ -101,17 +101,17 @@ Use `@/*` path alias consistently (`src/` or project root per Next convention).
 
 ## 4. Route mapping (source → Next)
 
-| Source (React Router) | Next App Router | Source file(s) to port |
-|----------------------|-----------------|-------------------------|
-| `/home` + `*` fallback | `/` (`app/page.tsx`) | `FrontEnd/src/views/Homepage.tsx`, `features/home/components/*` |
-| `/services` | `/services` | `features/services/components/ServicesPage.tsx`, `data/services.ts` |
-| `/about` | `/about` | `features/about/components/AboutPage.tsx` |
-| `/process` | `/process` | `features/process/components/ProcessPage.tsx`, `data/process-steps.ts` |
-| `/contact` | `/contact` | `features/contact/components/ContactPageContent.tsx` — **email-only in v1** |
-| `/get-started` (legacy) | redirect → `/projects` | `next.config.ts` permanent redirect |
-| — | `/projects` | `features/projects/` — portfolio showcase + email CTAs |
-| — | `/privacy` | New — footer links |
-| — | `/terms` | New — footer links |
+| Source (React Router)   | Next App Router        | Source file(s) to port                                                      |
+| ----------------------- | ---------------------- | --------------------------------------------------------------------------- |
+| `/home` + `*` fallback  | `/` (`app/page.tsx`)   | `FrontEnd/src/views/Homepage.tsx`, `features/home/components/*`             |
+| `/services`             | `/services`            | `features/services/components/ServicesPage.tsx`, `data/services.ts`         |
+| `/about`                | `/about`               | `features/about/components/AboutPage.tsx`                                   |
+| `/process`              | `/process`             | `features/process/components/ProcessPage.tsx`, `data/process-steps.ts`      |
+| `/contact`              | `/contact`             | `features/contact/components/ContactPageContent.tsx` — **email-only in v1** |
+| `/get-started` (legacy) | redirect → `/projects` | `next.config.ts` permanent redirect                                         |
+| —                       | `/projects`            | `features/projects/` — portfolio showcase + email CTAs                      |
+| —                       | `/privacy`             | New — footer links                                                          |
+| —                       | `/terms`               | New — footer links                                                          |
 
 **Redirect:** `/home` → `/` and `/get-started` → `/projects` in `next.config.ts`.
 
@@ -123,11 +123,11 @@ Use `@/*` path alias consistently (`src/` or project root per Next convention).
 
 **v1.1 (deferred):** Port logic from `BackEnd/src/` when online forms are approved.
 
-| Endpoint | Method | v1 status | Next target |
-|----------|--------|-----------|-------------|
-| `/api/health` | GET | **Ship** | `app/api/health/route.ts` |
-| `/api/contact` | POST | **Deferred v1.1** | `app/api/contact/route.ts` |
-| `/api/get-started` | POST | **Deferred v1.1** | `app/api/get-started/route.ts` |
+| Endpoint           | Method | v1 status         | Next target                    |
+| ------------------ | ------ | ----------------- | ------------------------------ |
+| `/api/health`      | GET    | **Ship**          | `app/api/health/route.ts`      |
+| `/api/contact`     | POST   | **Deferred v1.1** | `app/api/contact/route.ts`     |
+| `/api/get-started` | POST   | **Deferred v1.1** | `app/api/get-started/route.ts` |
 
 ### Response contracts (keep stable)
 
@@ -179,21 +179,21 @@ CONTACT_WEBHOOK_URL=          # optional — POST lead JSON on submit
 
 Copy from source:
 
-| Asset / token | Source path |
-|---------------|-------------|
-| Logo SVGs, icons | `FrontEnd/public/assets/XONE/xone_brand_kit/` |
-| Brand constants | `FrontEnd/src/lib/brand.ts` |
-| CSS tokens / palette | `FrontEnd/src/index.css` (`@theme inline`, Xone colors) |
-| shadcn components | `FrontEnd/src/components/ui/` (button, input, card, sheet, badge, separator) |
+| Asset / token        | Source path                                                                  |
+| -------------------- | ---------------------------------------------------------------------------- |
+| Logo SVGs, icons     | `FrontEnd/public/assets/XONE/xone_brand_kit/`                                |
+| Brand constants      | `FrontEnd/src/lib/brand.ts`                                                  |
+| CSS tokens / palette | `FrontEnd/src/index.css` (`@theme inline`, Xone colors)                      |
+| shadcn components    | `FrontEnd/src/components/ui/` (button, input, card, sheet, badge, separator) |
 
 **Palette (official):**
 
-| Token | Hex |
-|-------|-----|
-| navy | `#1a1a2e` |
+| Token  | Hex       |
+| ------ | --------- |
+| navy   | `#1a1a2e` |
 | violet | `#533bda` |
-| cyan | `#22d3ee` |
-| light | `#f1f5f9` |
+| cyan   | `#22d3ee` |
+| light  | `#f1f5f9` |
 
 **Client components:** Mark with `"use client"` where needed:
 
@@ -210,21 +210,21 @@ Marketing sections that are static HTML can stay Server Components.
 
 ### Contact fields
 
-| Field | Rules |
-|-------|-------|
-| name | required, 1–100 chars, no control chars |
-| email | required, valid email, lowercased, max 254 |
-| company | optional, max 100 |
-| message | required, 10–2000 chars, no control chars |
+| Field   | Rules                                      |
+| ------- | ------------------------------------------ |
+| name    | required, 1–100 chars, no control chars    |
+| email   | required, valid email, lowercased, max 254 |
+| company | optional, max 100                          |
+| message | required, 10–2000 chars, no control chars  |
 
 ### Get Started fields
 
-| Field | Rules |
-|-------|-------|
-| name, email, company | same as contact |
-| projectType | enum: `web-app`, `mobile-app`, `ui-ux`, `automation`, `other` |
-| timeline | enum: `asap`, `1-3-months`, `3-6-months`, `flexible` |
-| description | 10–1000 chars, no control chars |
+| Field                | Rules                                                         |
+| -------------------- | ------------------------------------------------------------- |
+| name, email, company | same as contact                                               |
+| projectType          | enum: `web-app`, `mobile-app`, `ui-ux`, `automation`, `other` |
+| timeline             | enum: `asap`, `1-3-months`, `3-6-months`, `flexible`          |
+| description          | 10–1000 chars, no control chars                               |
 
 **Implementation preference:**
 
@@ -270,13 +270,13 @@ Source: `FrontEnd/src/components/Navbar.tsx`, `Footer.tsx`
 
 ## 10. Deployment (Vercel only)
 
-| Setting | Value |
-|---------|--------|
-| Framework | Next.js |
-| Root Directory | `.` (repo root) |
-| Build | `next build` |
-| Node | 22.x |
-| Env | server vars in Vercel dashboard only |
+| Setting        | Value                                |
+| -------------- | ------------------------------------ |
+| Framework      | Next.js                              |
+| Root Directory | `.` (repo root)                      |
+| Build          | `next build`                         |
+| Node           | 22.x                                 |
+| Env            | server vars in Vercel dashboard only |
 
 **No** `FrontEnd/vercel.json` SPA rewrites — App Router handles routing.
 
@@ -312,12 +312,12 @@ No separate backend job. No GitHub Pages CD.
 
 Port or rewrite coverage comparable to source (~35 tests):
 
-| Area | Source | Next target |
-|------|--------|-------------|
-| Zod schemas | `FrontEnd/src/features/*/schemas/*.test.ts` | `src/schemas/*.test.ts` |
-| API client | `FrontEnd/src/lib/api.test.ts` | Route Handler tests or integration tests |
-| Pages smoke | `*Page.test.tsx` | React Testing Library + Vitest |
-| API integration | `BackEnd/tests/api.test.js` | `supertest` against Route Handlers or `next/test` patterns |
+| Area            | Source                                      | Next target                                                |
+| --------------- | ------------------------------------------- | ---------------------------------------------------------- |
+| Zod schemas     | `FrontEnd/src/features/*/schemas/*.test.ts` | `src/schemas/*.test.ts`                                    |
+| API client      | `FrontEnd/src/lib/api.test.ts`              | Route Handler tests or integration tests                   |
+| Pages smoke     | `*Page.test.tsx`                            | React Testing Library + Vitest                             |
+| API integration | `BackEnd/tests/api.test.js`                 | `supertest` against Route Handlers or `next/test` patterns |
 
 **Linux CI note:** If using glob in test script, prefer `tests/*.test.ts` not `tests/**/*.test.ts` (shell glob pitfall on Ubuntu).
 
@@ -395,17 +395,17 @@ Adapted from source `AGENTS.md`:
 **Repository:** `JshMarkCastillo-GHdev/xone-swe-web` (local folder: `xone-swe-web`)  
 **Do not modify source** when building Next — read and port only.
 
-| What | Where in source |
-|------|-----------------|
-| Pages & features | `FrontEnd/src/features/`, `FrontEnd/src/views/` |
-| Shared UI | `FrontEnd/src/components/` |
-| API logic | `BackEnd/src/routes/`, `services/`, `schemas/` |
-| Brand | `FrontEnd/src/lib/brand.ts`, `FrontEnd/src/index.css` |
-| Static assets | `FrontEnd/public/assets/XONE/` |
-| API tests | `BackEnd/tests/api.test.js` |
-| Env templates | `BackEnd/.env.example`, `FrontEnd/.env.example` |
-| Product backlog | `BACKLOGS_v1.md` |
-| Deploy lessons | `DEPLOY.md` (Vercel+Railway — **ignore Railway** for Next) |
+| What             | Where in source                                            |
+| ---------------- | ---------------------------------------------------------- |
+| Pages & features | `FrontEnd/src/features/`, `FrontEnd/src/views/`            |
+| Shared UI        | `FrontEnd/src/components/`                                 |
+| API logic        | `BackEnd/src/routes/`, `services/`, `schemas/`             |
+| Brand            | `FrontEnd/src/lib/brand.ts`, `FrontEnd/src/index.css`      |
+| Static assets    | `FrontEnd/public/assets/XONE/`                             |
+| API tests        | `BackEnd/tests/api.test.js`                                |
+| Env templates    | `BackEnd/.env.example`, `FrontEnd/.env.example`            |
+| Product backlog  | `BACKLOGS_v1.md`                                           |
+| Deploy lessons   | `DEPLOY.md` (Vercel+Railway — **ignore Railway** for Next) |
 
 ---
 
@@ -443,14 +443,14 @@ Do not implement Technical Documentation legacy APIs. Do not commit unless I ask
 
 ## 19. Risks to plan for
 
-| Risk | Mitigation |
-|------|------------|
-| Rate limit unlike Express | Choose KV/Upstash early in Phase 1 |
+| Risk                         | Mitigation                                                                    |
+| ---------------------------- | ----------------------------------------------------------------------------- |
+| Rate limit unlike Express    | Choose KV/Upstash early in Phase 1                                            |
 | Tailwind v4 + shadcn on Next | Follow current shadcn Next + Tailwind v4 docs; don't copy Vite config blindly |
-| Duplicate Zod client/server | Consolidate in `src/schemas/` |
-| Swiper in RSC tree | `"use client"` on MissionSection only |
-| Content drift from source | Use this doc + source files as spec; PM copy for legal pages |
+| Duplicate Zod client/server  | Consolidate in `src/schemas/`                                                 |
+| Swiper in RSC tree           | `"use client"` on MissionSection only                                         |
+| Content drift from source    | Use this doc + source files as spec; PM copy for legal pages                  |
 
 ---
 
-*Created: June 2026 — Next.js greenfield brief for Xone marketing site. Source: xone-swe-web (Vite 7 + Express 5).*
+_Created: June 2026 — Next.js greenfield brief for Xone marketing site. Source: xone-swe-web (Vite 7 + Express 5)._

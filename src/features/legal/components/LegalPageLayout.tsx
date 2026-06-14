@@ -62,7 +62,10 @@ export function LegalPageLayout({
         <footer className="mt-12 rounded-lg border border-border bg-background p-6 text-sm text-muted-foreground">
           <p>
             Questions about this page?{" "}
-            <Link href="/contact" className="font-medium text-xone-violet hover:underline">
+            <Link
+              href="/contact"
+              className="font-medium text-xone-violet hover:underline"
+            >
               Contact us
             </Link>{" "}
             or email{" "}

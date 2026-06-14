@@ -31,36 +31,36 @@ SITE_URL=http://localhost:5142
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Next.js dev server with Turbopack on **port 5142** |
-| `npm run build` | Production build |
-| `npm run start` | Production server on port 5142 |
-| `npm run lint` | ESLint (Next.js + TypeScript) |
-| `npm run test` | Vitest unit tests (`tests/*.test.ts`) |
+| Command         | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `npm run dev`   | Next.js dev server with Turbopack on **port 5142** |
+| `npm run build` | Production build                                   |
+| `npm run start` | Production server on port 5142                     |
+| `npm run lint`  | ESLint (Next.js + TypeScript)                      |
+| `npm run test`  | Vitest unit tests (`tests/*.test.ts`)              |
 
 ## Environment variables
 
 Server-only — **never** prefix secrets with `NEXT_PUBLIC_`.
 
-| Variable | Required | Description |
-|----------|----------|-------------|
-| `SITE_URL` | Recommended in production | Canonical URL for sitemap, robots, Open Graph |
-| `RATE_LIMIT_*`, `CONTACT_WEBHOOK_URL` | v1.1 only | Form APIs — not used in v1 |
+| Variable                              | Required                  | Description                                   |
+| ------------------------------------- | ------------------------- | --------------------------------------------- |
+| `SITE_URL`                            | Recommended in production | Canonical URL for sitemap, robots, Open Graph |
+| `RATE_LIMIT_*`, `CONTACT_WEBHOOK_URL` | v1.1 only                 | Form APIs — not used in v1                    |
 
 See [`.env.example`](./.env.example). Production values go in the **Vercel dashboard** only.
 
 ## Key routes
 
-| Route | Purpose |
-|-------|---------|
-| `/` | Homepage (6 sections) |
-| `/projects` | Portfolio showcase + email CTAs |
-| `/contact` | Email, phone, location (no form) |
-| `/services`, `/about`, `/process` | Marketing pages |
-| `/privacy`, `/terms` | Legal pages |
-| `/get-started` | Redirects to `/projects` |
-| `/robots.txt`, `/sitemap.xml` | SEO (Next metadata routes) |
+| Route                             | Purpose                          |
+| --------------------------------- | -------------------------------- |
+| `/`                               | Homepage (6 sections)            |
+| `/projects`                       | Portfolio showcase + email CTAs  |
+| `/contact`                        | Email, phone, location (no form) |
+| `/services`, `/about`, `/process` | Marketing pages                  |
+| `/privacy`, `/terms`              | Legal pages                      |
+| `/get-started`                    | Redirects to `/projects`         |
+| `/robots.txt`, `/sitemap.xml`     | SEO (Next metadata routes)       |
 
 ## Project structure
 
@@ -76,11 +76,11 @@ tests/               # Vitest tests
 
 ## API
 
-| Endpoint | Method | Status |
-|----------|--------|--------|
-| `/api/health` | GET | Deploy smoke check |
-| `/api/contact` | POST | **v1.1** — deferred |
-| `/api/get-started` | POST | **v1.1** — deferred |
+| Endpoint           | Method | Status              |
+| ------------------ | ------ | ------------------- |
+| `/api/health`      | GET    | Deploy smoke check  |
+| `/api/contact`     | POST   | **v1.1** — deferred |
+| `/api/get-started` | POST   | **v1.1** — deferred |
 
 ## CI
 

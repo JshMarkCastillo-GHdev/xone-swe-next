@@ -19,4 +19,20 @@ describe("teamMembers", () => {
       expect(member.role.length).toBeGreaterThan(0);
     }
   });
+
+  it("includes expected profile links per member", () => {
+    const [jb, ryan, josh] = teamMembers;
+
+    expect(jb.linkedin).toContain("linkedin.com/in/jhonbertvillarosa");
+    expect(jb.portfolio).toBe("https://xone-swe-next.vercel.app/");
+    expect(jb.github).toBeUndefined();
+
+    expect(ryan.linkedin).toContain("linkedin.com/in/ryan-rey-magdalita");
+    expect(ryan.github).toBe("https://github.com/ryMGDLT");
+    expect(ryan.portfolio).toBeUndefined();
+
+    expect(josh.linkedin).toContain("linkedin.com/in/castillo-joshua-mark");
+    expect(josh.github).toBe("https://github.com/JshMarkCastillo-GHdev");
+    expect(josh.portfolio).toBe("https://joshua-fs-dev.vercel.app/");
+  });
 });

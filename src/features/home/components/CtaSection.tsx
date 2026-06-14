@@ -24,7 +24,10 @@ export function CtaSection() {
         <div className="mx-auto mb-6 flex max-w-md flex-col justify-center gap-3 sm:mb-8 sm:flex-row">
           <Link
             href="/projects"
-            className={cn(buttonVariants({ size: "lg" }), "h-11 px-6 font-semibold")}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "h-11 px-6 font-semibold",
+            )}
           >
             View Our Projects
           </Link>

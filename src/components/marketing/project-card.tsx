@@ -69,14 +69,16 @@ export function ProjectCard({
       )}
 
       <ul className="mt-4 flex flex-wrap gap-2">
-        {project.tags.slice(0, isCompact ? 3 : project.tags.length).map((tag) => (
-          <li
-            key={tag}
-            className="rounded-md border border-border bg-muted/50 px-2 py-0.5 text-xs text-muted-foreground"
-          >
-            {tag}
-          </li>
-        ))}
+        {project.tags
+          .slice(0, isCompact ? 3 : project.tags.length)
+          .map((tag) => (
+            <li
+              key={tag}
+              className="rounded-md border border-border bg-muted/50 px-2 py-0.5 text-xs text-muted-foreground"
+            >
+              {tag}
+            </li>
+          ))}
       </ul>
 
       {project.href ? (
@@ -108,7 +110,10 @@ export function ProjectsLinkButton({
   return (
     <Link
       href={href}
-      className={cn(buttonVariants({ variant: "outline", size: "lg" }), className)}
+      className={cn(
+        buttonVariants({ variant: "outline", size: "lg" }),
+        className,
+      )}
     >
       {label}
     </Link>

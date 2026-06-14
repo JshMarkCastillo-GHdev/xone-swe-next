@@ -4,11 +4,7 @@ import { Mail } from "lucide-react";
 import { ProjectCard } from "@/components/marketing/project-card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import {
-  buildContactMailto,
-  BRAND_NAME,
-  CONTACT_EMAIL,
-} from "@/lib/brand";
+import { buildContactMailto, BRAND_NAME, CONTACT_EMAIL } from "@/lib/brand";
 import { projects } from "@/features/projects/data/projects";
 
 export function ProjectsPageContent() {
@@ -28,7 +24,10 @@ export function ProjectsPageContent() {
           </p>
           <a
             href={buildContactMailto("Project inquiry from portfolio")}
-            className={cn(buttonVariants({ size: "lg" }), "mt-6 inline-flex gap-2")}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "mt-6 inline-flex gap-2",
+            )}
           >
             <Mail className="size-4" aria-hidden />
             Email {CONTACT_EMAIL}
@@ -52,7 +51,10 @@ export function ProjectsPageContent() {
             discovery call.
           </p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-start">
-            <a href={buildContactMailto()} className={buttonVariants({ size: "lg" })}>
+            <a
+              href={buildContactMailto()}
+              className={buttonVariants({ size: "lg" })}
+            >
               Send us an email
             </a>
             <Link

@@ -91,6 +91,6 @@ export const projects: readonly Project[] = [
 ] as const;
 
 /** Homepage featured work — three client-facing case studies (excludes meta site entry). */
-export const featuredProjects: readonly Project[] = projects.filter(
-  (p) => p.id !== "xone-marketing-next",
-).slice(0, 3);
+export const featuredProjects: readonly Project[] = projects
+  .filter((p) => p.id !== "xone-marketing-next")
+  .slice(0, 3);

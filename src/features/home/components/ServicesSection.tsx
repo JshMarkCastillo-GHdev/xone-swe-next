@@ -8,7 +8,11 @@ const services = [
     title: "System Generation & Automation",
     description:
       "Streamline your workflows with intelligent automation solutions that boost efficiency and reduce manual tasks.",
-    items: ["Process Automation", "Workflow Optimization", "System Integration"],
+    items: [
+      "Process Automation",
+      "Workflow Optimization",
+      "System Integration",
+    ],
     buttonClass: "bg-xone-cyan text-xone-navy hover:opacity-90",
   },
   {
@@ -72,7 +76,9 @@ export function ServicesSection() {
                 <h3 className="mb-2 text-center text-xl font-bold sm:text-2xl">
                   {service.title}
                 </h3>
-                <p className="mb-6 text-muted-foreground">{service.description}</p>
+                <p className="mb-6 text-muted-foreground">
+                  {service.description}
+                </p>
                 <ul className="mb-8 space-y-3">
                   {service.items.map((item) => (
                     <li key={item} className="flex items-center">

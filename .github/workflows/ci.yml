@@ -13,7 +13,7 @@ concurrency:
 
 jobs:
   quality:
-    name: Lint, test, build
+    name: Lint, format, test, build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -31,6 +31,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
 
       - name: Unit tests
         run: npm run test
