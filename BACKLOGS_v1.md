@@ -2,7 +2,7 @@
 
 Prioritized backlog for the **Xone Software Development** Next.js site (`xone-swe-next`).
 
-**Phase:** Week 2 complete — homepage + core pages ported; Week 3 legal/SEO next  
+**Phase:** Week 3 complete — legal pages, SEO, security headers, project case studies  
 **Plan:** `SPRINT_PLAN_v1.md`  
 **Spec:** `PROJECT_INFO_NEXT.md`
 
@@ -36,8 +36,8 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 | BRD-03 | P1 | Team carousel with initials avatars | Frontend | 2 | Done |
 | BRD-04 | P1 | Brand kit under `public/assets/XONE/` | Frontend | 1 | Done |
 | BRD-05 | P1 | Color tokens in `globals.css` + `brand.ts` | Frontend | 1 | Done |
-| BRD-06 | P2 | Privacy + Terms (PM copy) | PM + Frontend | 3 | Scaffolded |
-| BRD-07 | P3 | Favicon + Open Graph meta | Frontend | 3 | Pending |
+| BRD-06 | P2 | Privacy + Terms (PM copy) | PM + Frontend | 3 | Done |
+| BRD-07 | P3 | Favicon + Open Graph meta | Frontend | 3 | Done |
 
 ---
 
@@ -46,7 +46,7 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 | ID | Priority | Item | Owner | Week | Status |
 |----|----------|------|-------|------|--------|
 | PG-00 | P0 | Scaffold App Router routes | Frontend | 1 | Done |
-| PG-11 | P0 | **`/projects` page** + showcase data | Frontend | 1 | Done |
+| PG-11 | P0 | **`/projects` page** + showcase data | Frontend | 1 | Done (Week 3 case-study polish) |
 | PG-12 | P0 | **Email-only `/contact` page** | Frontend | 1 | Done |
 | PG-13 | P0 | Navbar/footer CTAs; get-started redirect | Frontend | 1 | Done |
 | PG-01 | P0 | Homepage Hero section | Frontend | 2 | Done |
@@ -88,10 +88,10 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 |----|----------|------|-------|------|--------|
 | QA-01 | P1 | Cross-route responsive smoke | QA | 2 | Pending |
 | QA-02 | P1 | Vitest: env + health tests | QA | 1 | Done |
-| QA-04 | P1 | Email link QA (mailto, tel) | QA | 3 | Pending |
+| QA-04 | P1 | Email link QA (mailto, tel) | QA | 3 | Done |
 | QA-05 | P0 | Production smoke matrix | QA | 4 | Pending |
 | DEP-01 | P0 | Vercel production deploy | Fullstack | 4 | Pending |
-| DEP-04 | P2 | `robots.ts` + `sitemap.ts` | Fullstack | 3 | Pending |
+| DEP-04 | P2 | `robots.ts` + `sitemap.ts` | Fullstack | 3 | Done |
 
 ---
 

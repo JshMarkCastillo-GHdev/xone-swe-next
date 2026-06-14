@@ -1,5 +1,16 @@
 import type { NextConfig } from "next";
 
+const securityHeaders = [
+  { key: "X-Frame-Options", value: "DENY" },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  {
+    key: "Permissions-Policy",
+    value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
+  },
+  { key: "X-DNS-Prefetch-Control", value: "on" },
+] as const;
+
 const nextConfig: NextConfig = {
   async redirects() {
     return [
@@ -12,6 +23,14 @@ const nextConfig: NextConfig = {
         source: "/get-started",
         destination: "/projects",
         permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [...securityHeaders],
       },
     ];
   },

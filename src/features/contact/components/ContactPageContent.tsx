@@ -14,7 +14,7 @@ import {
 
 export function ContactPageContent() {
   return (
-    <main className="bg-xone-section px-4 py-12 sm:px-6 lg:px-8">
+    <div className="bg-xone-section px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <header className="mb-10 text-center">
           <h1 className="text-3xl font-bold text-foreground sm:text-5xl">
@@ -99,6 +99,6 @@ export function ContactPageContent() {
           is the fastest path to a qualified conversation.
         </p>
       </div>
-    </main>
+    </div>
   );
 }

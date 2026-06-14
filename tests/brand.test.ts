@@ -21,9 +21,12 @@ describe("buildContactMailto", () => {
 });
 
 describe("projects data", () => {
-  it("exposes at least one showcase project", () => {
+  it("exposes showcase projects with case-study fields", () => {
     expect(projects.length).toBeGreaterThan(0);
-    expect(projects[0]?.id).toBeTruthy();
-    expect(projects[0]?.title).toBeTruthy();
+    const first = projects[0];
+    expect(first?.id).toBeTruthy();
+    expect(first?.title).toBeTruthy();
+    expect(first?.challenge).toBeTruthy();
+    expect(first?.outcomes.length).toBeGreaterThan(0);
   });
 });

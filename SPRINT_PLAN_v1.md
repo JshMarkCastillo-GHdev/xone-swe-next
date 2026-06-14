@@ -110,10 +110,10 @@ Legal pages, SEO foundations, real project case studies (PM content).
 
 ### Week 3 Exit Criteria
 
-- [ ] Footer Privacy/Terms links resolve to real pages
-- [ ] Page metadata and favicon present on primary routes
-- [ ] Projects page reflects approved showcase content
-- [ ] No P0 QA defects open on navigation or email links
+- [x] Footer Privacy/Terms links resolve to real pages
+- [x] Page metadata and favicon present on primary routes
+- [x] Projects page reflects approved showcase content
+- [x] No P0 QA defects open on navigation or email links
 
 ---
 

@@ -28,6 +28,8 @@ export const brandAssets = {
   logoInverse: "/assets/XONE/xone_brand_kit/xone_logo_inverse.svg",
   /** Favicon and compact marks */
   icon: "/assets/XONE/xone_brand_kit/xone_icon.svg",
+  /** PNG icon for Open Graph / Twitter cards */
+  iconPng: "/assets/XONE/xone_brand_kit/xone_icon_2x.png",
   wordmark: "/assets/XONE/xone_brand_kit/xone_wordmark.svg",
 } as const;
 

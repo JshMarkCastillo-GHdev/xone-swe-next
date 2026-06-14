@@ -17,9 +17,13 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 | Area | Status |
 |------|--------|
 | Next.js bootstrap | **Done** |
-| App Router routes | **Done** — homepage + Services/About/Process ported |
+| App Router routes | **Done** — homepage + Services/About/Process + legal pages |
 | Brand assets | Copied to `public/assets/XONE/xone_brand_kit/` |
 | Lead capture | **Email-only** + `/projects` — no POST APIs in v1 |
+| Legal pages | **Done** — Privacy + Terms with PM placeholder copy |
+| SEO | **Done** — favicon, Open Graph/Twitter, `robots.ts`, `sitemap.ts` |
+| Security headers | **Done** — `next.config.ts` response headers (SEC-04) |
+| Projects portfolio | **Done** — case-study style showcase content (Week 3) |
 | API | `GET /api/health` only |
 | CI/CD | GitHub Actions: lint, test, build |
 | Deployment | Vercel — Week 4 |
@@ -46,7 +50,7 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 |------|-------|
 | Week 1 | Bootstrap + projects page + email contact (**done**) |
 | Week 2 | Homepage sections + Services/About/Process pages (**done**) |
-| Week 3 | Legal copy, SEO, PM project case studies |
+| Week 3 | Legal copy, SEO, PM project case studies (**done**) |
 | Week 4 | Vercel deploy + QA sign-off |
 
 See `SPRINT_PLAN_v1.md` for deliverables and exit criteria per week.

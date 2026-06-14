@@ -1,18 +1,15 @@
-import {
-  createPlaceholderMetadata,
-  PlaceholderPage,
-} from "@/components/placeholder-page";
+import type { Metadata } from "next";
 
-export const metadata = createPlaceholderMetadata({
+import { TermsPageContent } from "@/features/legal/components/TermsPageContent";
+import { createPageMetadata } from "@/lib/metadata";
+
+export const metadata: Metadata = createPageMetadata({
   title: "Terms of Service",
-  description: "Terms of service for Xone Software Development.",
+  description:
+    "Terms of service for using the Xone Software Development marketing website.",
+  path: "/terms",
 });
 
 export default function TermsPage() {
-  return (
-    <PlaceholderPage
-      title="Terms of Service"
-      description="Legal copy placeholder — PM-approved content lands in Week 3."
-    />
-  );
+  return <TermsPageContent />;
 }

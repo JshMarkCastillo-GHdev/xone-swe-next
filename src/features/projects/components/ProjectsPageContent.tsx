@@ -15,7 +15,7 @@ import {
 
 export function ProjectsPageContent() {
   return (
-    <main className="bg-xone-section px-4 py-12 sm:px-6 lg:px-8">
+    <div className="bg-xone-section px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-6xl">
         <header className="mb-12 text-center">
           <p className="mb-3 text-sm font-medium uppercase tracking-wide text-xone-violet">
@@ -60,6 +60,20 @@ export function ProjectsPageContent() {
               <p className="mt-3 flex-1 text-sm text-muted-foreground">
                 {project.summary}
               </p>
+              <p className="mt-3 text-sm text-foreground/80">
+                <span className="font-medium text-foreground">Challenge: </span>
+                {project.challenge}
+              </p>
+              <div className="mt-4">
+                <p className="text-xs font-medium uppercase tracking-wide text-xone-violet">
+                  Outcomes
+                </p>
+                <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-muted-foreground">
+                  {project.outcomes.map((outcome) => (
+                    <li key={outcome}>{outcome}</li>
+                  ))}
+                </ul>
+              </div>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <li
@@ -101,6 +115,6 @@ export function ProjectsPageContent() {
           </a>
         </aside>
       </div>
-    </main>
+    </div>
   );
 }
