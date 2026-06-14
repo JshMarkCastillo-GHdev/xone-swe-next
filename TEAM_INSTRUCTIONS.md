@@ -2,7 +2,7 @@
 
 Role-based instructions for the **Xone Software Development** Next.js marketing site (`xone-swe-next`).
 
-All team members must read and follow `AGENTS.md`. This document defines **who does what**, not **how to code** (that lives in `AGENTS.md`, `PROJECT_INFO_NEXT.md`, and `README.md` when present).
+**v1 lead capture:** Email-only (`mailto:`) + `/projects` — no online forms until v1.1.
 
 **Before any task or commit:** read `AGENTS.md`, `PROJECT_INFO_NEXT.md`, and this file first. Local checks (`npm run lint`, `npm run test`, `npm run build`) must match what GitHub Actions runs in `.github/workflows/ci.yml`.
 
@@ -37,7 +37,7 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 - Resolve cross-role technical blockers
 - Define porting standards from `xone-swe-web` (Vite + Express) to Next.js Route Handlers
 - Review security posture before Vercel production deploy
-- Sign off on rate-limiting choice (Vercel KV, Upstash, or edge middleware)
+- Sign off on rate-limiting choice when v1.1 form APIs are approved (Vercel KV, Upstash, or edge middleware)
 
 **Workflow**
 
@@ -54,7 +54,8 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 
 - Bootstrap and maintain the single Next.js app at repo root
 - Own `.github/workflows/ci.yml`, `next.config.ts`, `.env.example`, and Vercel project settings
-- Implement Route Handlers and wire contact/get-started forms end-to-end
+- Implement `/projects` and email-only `/contact`; maintain `GET /api/health`
+- Form POST routes (`/api/contact`, `/api/get-started`) are **v1.1** — do not implement without PM approval
 - Own `README.md` accuracy and local dev ergonomics
 - Bridge `src/schemas/`, `src/features/*/services/`, and `app/api/**/route.ts`
 
@@ -62,8 +63,8 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 
 1. Clone repo; run `npm install`, then `npm run dev` (Turbopack) from repo root
 2. Create root `.env.example` from `PROJECT_INFO_NEXT.md` §5 — never commit real `.env`
-3. When wiring forms: shared Zod in `src/schemas/` + server validation in Route Handlers + matching client UX
-4. Local API calls use same-origin `/api/*` — no CORS, no separate backend process
+3. v1: use `buildContactMailto()` from `src/lib/brand.ts` for all email CTAs
+4. v1.1 (when approved): shared Zod in `src/schemas/` + Route Handlers + client forms
 5. Add **unit and integration tests** for validation, services, and Route Handlers
 6. Run `npm run lint`, `npm run test`, and `npm run build` before every commit
 7. Submit PRs that span API + UI when a feature requires both
@@ -81,7 +82,7 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 - Optional integrations: webhook (`CONTACT_WEBHOOK_URL`), logging
 - Server-only modules in `src/lib/` (env, validation helpers, rate limit client)
 
-**Current state (greenfield):** App scaffold may not exist yet. Target v1: health, contact, get-started — no database, no user CRUD.
+**Current state:** Phase 0 + static lead capture done. Week 2: port homepage and core pages from `xone-swe-web`.
 
 **Workflow**
 
@@ -142,11 +143,12 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 
 1. Read sprint acceptance criteria before testing
 2. Verify production build (`npm run build` + `npm run start`) not only dev server
-3. Test failure paths: empty form, invalid email, rate limit (429), network error on submit
+3. Test email links (`mailto:`, `tel:`) on Contact and Projects pages
+4. Test `/get-started` redirect to `/projects`
 4. Confirm no console errors on primary routes
 5. Block release if secrets appear in client bundle or `.env` is committed
 6. Confirm GitHub Actions CI is green on the shared active branch before sign-off
-7. On Vercel: verify `GET /api/health`, form submissions, and footer legal links
+7. On Vercel: verify `GET /api/health`, email CTAs, and footer legal links
 
 **Test priorities (bootstrap / Phase 0–2)**
 
@@ -157,7 +159,7 @@ All team members must read and follow `AGENTS.md`. This document defines **who d
 | P1 | Homepage renders on mobile without horizontal scroll |
 | P1 | Images load from `public/assets/` |
 | P1 | `GET /api/health` returns `{ success: true, status: "ok" }` |
-| P2 | Contact and Get Started forms (validation + successful submit) |
+| P2 | Email CTAs and Projects page on mobile/desktop |
 | P2 | Lighthouse performance/accessibility baseline |
 
 ---

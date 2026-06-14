@@ -13,10 +13,11 @@ This file defines the non-negotiable engineering rules for this project. It is i
 - **Typography:** Geist Sans (`geist` or `@fontsource-variable/geist`) — do not add Poppins/Inter for new UI
 - **UI components:** shadcn/ui (`src/components/ui/`) — add via `npx shadcn@latest add <component>`
 - **Routing:** Next.js App Router (`app/**/page.tsx`) — no React Router, no Vite
-- **API:** Next.js Route Handlers (`app/api/**/route.ts`) — no separate Express server or `BackEnd/` folder
+- **API:** Next.js Route Handlers (`app/api/**/route.ts`) — v1 ships `GET /api/health` only; form POST routes are **v1.1**
+- **Lead capture (v1):** Email-only via `mailto:` (`src/lib/brand.ts`) + `/projects` portfolio — no online forms in v1
 - **Hosting:** **Vercel only** (repo root = app root)
-- **Validation:** Schema-first validation (Zod) at Route Handler boundaries; shared schemas in `src/schemas/`
-- **Database:** None in v1 (leads via optional webhook only)
+- **Validation:** Zod at Route Handler boundaries when v1.1 form APIs ship; shared schemas in `src/schemas/`
+- **Database:** None in v1
 - **Auth:** Not required for public marketing pages; deny-by-default if admin or protected areas are introduced later
 
 **Do not introduce:** Railway, separate backend service, `VITE_*` env vars, GitHub Pages SPA deploy, legacy Technical Documentation CRUD APIs.
@@ -46,16 +47,15 @@ xone-swe-next/
     services/page.tsx
     about/page.tsx
     process/page.tsx
-    contact/page.tsx
-    get-started/page.tsx
+    projects/page.tsx
+    contact/page.tsx          # email-only in v1
     privacy/page.tsx
     terms/page.tsx
     robots.ts               # optional — metadata API
     sitemap.ts              # optional — metadata API
     api/
       health/route.ts
-      contact/route.ts
-      get-started/route.ts
+      # v1.1: contact/route.ts, get-started/route.ts
   src/
     components/
       ui/                   # shadcn/ui primitives
@@ -66,16 +66,14 @@ xone-swe-next/
       services/
       about/
       process/
+      projects/
       contact/
-      get-started/
     lib/
-      brand.ts
-      env.ts                # server env validation (Zod)
+      brand.ts              # CONTACT_EMAIL, buildContactMailto()
+      env.ts                # server env validation (Zod) — v1.1 form vars
       utils.ts
       validation-helpers.ts
-    schemas/                # shared Zod — API + forms
-      contact.ts
-      get-started.ts
+    schemas/                # v1.1 — shared Zod when form APIs ship
   public/
     assets/XONE/xone_brand_kit/
   .env.example
@@ -135,7 +133,7 @@ const envSchema = z.object({
 export const env = envSchema.parse(process.env);
 ```
 
-**v1 server env (see `.env.example`):** `RATE_LIMIT_WINDOW_MS`, `RATE_LIMIT_MAX`, `CONTACT_WEBHOOK_URL`. No `CORS_ORIGIN` — same-origin only.
+**v1 server env:** Optional — reserved for v1.1 form APIs (`RATE_LIMIT_*`, `CONTACT_WEBHOOK_URL`). See `.env.example`. No `CORS_ORIGIN` — same-origin only.
 
 ## Authentication Rules
 
@@ -194,12 +192,12 @@ Keep handlers in `app/api/**/route.ts` thin and defensive:
 
 - Parse request
 - Validate input DTO (Zod schema from `src/schemas/`)
-- Apply rate limiting on public POST routes (Vercel-compatible — KV, Upstash, or edge middleware; document choice in README)
+- Apply rate limiting on public POST routes when v1.1 form APIs ship (Vercel-compatible — KV, Upstash, or edge middleware)
 - Call service in `src/features/*/services/` or `src/lib/`
 - Map result to response DTO
 - Return safe response
 
-**v1 endpoints:** `GET /api/health`, `POST /api/contact`, `POST /api/get-started`. Response contracts in `PROJECT_INFO_NEXT.md` §5.
+**v1 endpoints:** `GET /api/health` only. **v1.1:** `POST /api/contact`, `POST /api/get-started` — contracts in `PROJECT_INFO_NEXT.md` §5.
 
 Route handlers must not:
 
@@ -259,7 +257,8 @@ Before merging, verify all of the following:
 - No secret env usage in client code (no non-`NEXT_PUBLIC_` vars in Client Components or client bundles)
 - `.env` files are gitignored and not committed
 - All external input validated server-side on Route Handlers
-- Rate limiting present on public POST routes
+- Email CTAs use `buildContactMailto()` from `src/lib/brand.ts` — do not hardcode addresses in components
+- Rate limiting required when POST form routes ship (v1.1)
 - No raw SQL built from string concatenation (when DB exists)
 - Mobile layout reviewed for changed pages
 - TypeScript strictness preserved

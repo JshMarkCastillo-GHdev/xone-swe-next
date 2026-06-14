@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { BRAND_NAME } from "@/lib/brand";
+import { BRAND_NAME, buildContactMailto } from "@/lib/brand";
 
 export default function HomePage() {
   return (
@@ -13,22 +13,22 @@ export default function HomePage() {
           Software development with clarity and momentum
         </h1>
         <p className="mt-6 text-lg text-muted-foreground">
-          Phase 0 bootstrap — homepage sections will be ported from the v1 site
-          in Week 2.
+          Explore our work, then reach out by email when you are ready to talk
+          about your project.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="/get-started"
+            href="/projects"
             className="inline-flex h-10 items-center justify-center rounded-lg bg-accent px-5 text-sm font-medium text-accent-foreground hover:bg-accent/90"
           >
-            Get Started
+            View Our Projects
           </Link>
-          <Link
-            href="/services"
+          <a
+            href={buildContactMailto("Project inquiry")}
             className="inline-flex h-10 items-center justify-center rounded-lg border border-border bg-background px-5 text-sm font-medium hover:bg-muted"
           >
-            View Services
-          </Link>
+            Email Us
+          </a>
         </div>
       </div>
     </section>

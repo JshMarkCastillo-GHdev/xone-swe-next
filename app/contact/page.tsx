@@ -1,18 +1,13 @@
-import {
-  createPlaceholderMetadata,
-  PlaceholderPage,
-} from "@/components/placeholder-page";
+import type { Metadata } from "next";
 
-export const metadata = createPlaceholderMetadata({
+import { ContactPageContent } from "@/features/contact/components/ContactPageContent";
+import { BRAND_NAME } from "@/lib/brand";
+
+export const metadata: Metadata = {
   title: "Contact",
-  description: "Contact Xone Software Development to discuss your project.",
-});
+  description: `Contact ${BRAND_NAME} by email to discuss your software project.`,
+};
 
 export default function ContactPage() {
-  return (
-    <PlaceholderPage
-      title="Contact"
-      description="Contact form and API wiring arrive in Week 1 (Phase 1)."
-    />
-  );
+  return <ContactPageContent />;
 }

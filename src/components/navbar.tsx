@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/process", label: "Process" },
@@ -49,10 +50,10 @@ export function Navbar({ className }: NavbarProps) {
         </nav>
 
         <Link
-          href="/get-started"
+          href="/projects"
           className="inline-flex h-9 items-center justify-center rounded-lg bg-accent px-4 text-sm font-medium text-accent-foreground transition-colors hover:bg-accent/90"
         >
-          Get Started
+          View Our Projects
         </Link>
       </div>
     </header>

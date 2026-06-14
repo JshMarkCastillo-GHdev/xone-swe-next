@@ -32,6 +32,11 @@ export function Footer({ className }: FooterProps) {
           </h2>
           <ul className="space-y-2 text-sm text-xone-gray-light/90">
             <li>
+              <Link href="/projects" className="hover:text-white">
+                Our Projects
+              </Link>
+            </li>
+            <li>
               <Link href="/services" className="hover:text-white">
                 Web &amp; Mobile Apps
               </Link>

@@ -3,6 +3,12 @@
 export const BRAND_NAME = "Xone Software Development";
 export const BRAND_SHORT = "Xone";
 
+/** Public contact channels (v1 — email-only lead capture) */
+export const CONTACT_EMAIL = "hello@xonesoftware.dev";
+export const CONTACT_PHONE = "+15551234567";
+export const CONTACT_PHONE_DISPLAY = "+1 (555) 123-4567";
+export const CONTACT_LOCATION = "Remote-first team serving clients worldwide";
+
 /** Official palette from xone_brand_kit/README.txt */
 export const brandColors = {
   navy: "#1a1a2e",
@@ -24,3 +30,8 @@ export const brandAssets = {
   icon: "/assets/XONE/xone_brand_kit/xone_icon.svg",
   wordmark: "/assets/XONE/xone_brand_kit/xone_wordmark.svg",
 } as const;
+
+export function buildContactMailto(subject = "Project inquiry"): string {
+  const params = new URLSearchParams({ subject });
+  return `mailto:${CONTACT_EMAIL}?${params.toString()}`;
+}
