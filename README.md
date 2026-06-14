@@ -6,6 +6,8 @@ Greenfield **Next.js App Router** rebuild of the Xone marketing site. Single app
 
 **v1 lead capture:** **View Our Projects** (`/projects`) + **email-only** contact (`mailto:hello@xonesoftware.dev`). Online forms deferred to v1.1.
 
+**Status:** **v1 shipped** on Vercel (June 2026).
+
 ## Prerequisites
 
 - **Node.js 22.x** (matches Vercel and CI)
@@ -86,9 +88,9 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on every push and PR: lint → 
 
 ## Deployment (Vercel)
 
-**Full guide:** [`DEPLOY.md`](./DEPLOY.md)
+**Status:** v1 is live on Vercel. See [`DEPLOY.md`](./DEPLOY.md) for setup reference and the post-deploy checklist (completed for initial ship).
 
-Quick summary:
+Quick summary for new environments:
 
 1. Push to `main` with CI green
 2. Import repo in Vercel (root = `.`, Node 22.x)

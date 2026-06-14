@@ -2,7 +2,7 @@
 
 Prioritized backlog for the **Xone Software Development** Next.js site (`xone-swe-next`).
 
-**Phase:** Week 4 — deploy docs ready; Vercel connect + production deploy pending (your action)  
+**Phase:** **v1 shipped** — production on Vercel; smoke + sitemap/robots verified (June 2026)  
 **Plan:** `SPRINT_PLAN_v1.md`  
 **Spec:** `PROJECT_INFO_NEXT.md`
 
@@ -31,7 +31,7 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 
 | ID | Priority | Item | Owner | Week | Status |
 |----|----------|------|-------|------|--------|
-| BRD-01 | P0 | Rebrand: **Xone Software Development** | Frontend | 1–2 | In progress |
+| BRD-01 | P0 | Rebrand: **Xone Software Development** | Frontend | 1–2 | Done |
 | BRD-02 | P0 | Root layout metadata | Frontend | 1 | Done |
 | BRD-03 | P1 | Team carousel with initials avatars | Frontend | 2 | Done |
 | BRD-04 | P1 | Brand kit under `public/assets/XONE/` | Frontend | 1 | Done |
@@ -86,11 +86,11 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 
 | ID | Priority | Item | Owner | Week | Status |
 |----|----------|------|-------|------|--------|
-| QA-01 | P1 | Cross-route responsive smoke | QA | 2 | Pending |
+| QA-01 | P1 | Cross-route responsive smoke | QA | 2–4 | Done |
 | QA-02 | P1 | Vitest: env + health tests | QA | 1 | Done |
-| QA-04 | P1 | Email link QA (mailto, tel) | QA | 3 | Done |
-| QA-05 | P0 | Production smoke matrix | QA | 4 | Pending |
-| DEP-01 | P0 | Vercel production deploy | Fullstack | 4 | Pending |
+| QA-04 | P1 | Email link QA (mailto, tel) | QA | 3–4 | Done |
+| QA-05 | P0 | Production smoke matrix | QA | 4 | Done |
+| DEP-01 | P0 | Vercel production deploy | Fullstack | 4 | Done |
 | DEP-04 | P2 | `robots.ts` + `sitemap.ts` | Fullstack | 3 | Done |
 
 ---
@@ -103,7 +103,8 @@ Priority key: **P0** critical · **P1** high · **P2** medium · **P3** low
 | Form APIs | Deferred to v1.1 | PM + Tech Lead | Week 1 |
 | Rate limit provider | N/A until v1.1 POST routes | Tech Lead | v1.1 |
 | Dev port | **5142** | Fullstack | Week 1 |
+| v1 sign-off | Production deploy + smoke tests passed | PM | June 2026 |
 
 ---
 
-*Updated for email-only v1 scope — June 2026.*
+*Updated — v1 shipped on Vercel, June 2026.*

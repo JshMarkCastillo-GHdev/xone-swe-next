@@ -181,4 +181,8 @@ From `PROJECT_INFO_NEXT.md` §17:
 
 ---
 
-*Week 4 deploy guide — Xone Software Development Next.js site.*
+## v1 ship complete
+
+If you are verifying an existing production deployment, use the checklist above. Initial v1 ship: production deploy, smoke tests, and sitemap/robots verification completed June 2026.
+
+---

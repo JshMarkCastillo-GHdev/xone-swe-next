@@ -12,23 +12,26 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 
 **v1 scope:** no authentication, no database, no online forms. Form APIs deferred to **v1.1**.
 
+## Status: v1 shipped
+
+**Production:** live on Vercel · **Smoke tests:** passed · **Sitemap/robots:** verified · **Program:** 4-week sprint complete (June 2026)
+
 ## Current State
 
 | Area | Status |
 |------|--------|
 | Next.js bootstrap | **Done** |
-| App Router routes | **Done** — homepage + Services/About/Process + legal pages |
-| Brand assets | Copied to `public/assets/XONE/xone_brand_kit/` |
-| Lead capture | **Email-only** + `/projects` — no POST APIs in v1 |
-| Legal pages | **Done** — Privacy + Terms with PM placeholder copy |
-| SEO | **Done** — favicon, Open Graph/Twitter, `robots.ts`, `sitemap.ts` |
-| Security headers | **Done** — `next.config.ts` response headers (SEC-04) |
-| Projects portfolio | **Done** — case-study style showcase content (Week 3) |
+| App Router routes | **Done** — all marketing + legal pages |
+| Brand assets | `public/assets/XONE/xone_brand_kit/` |
+| Lead capture | **Email-only** + `/projects` |
+| Legal pages | **Done** — Privacy + Terms (PM placeholder; legal review optional) |
+| SEO | **Done** — favicon, OG/Twitter, `robots.ts`, `sitemap.ts`, `SITE_URL` |
+| Security headers | **Done** — `next.config.ts` (SEC-04) |
 | API | `GET /api/health` only |
 | CI/CD | GitHub Actions: lint, test, build |
-| Deployment | **Week 4 — docs ready; Vercel deploy pending** |
+| Deployment | **Done** — Vercel production |
 
-**Source reference:** `xone-swe-web` (Vite SPA + Express) — read-only; port behavior, do not migrate in-place.
+**Source reference:** `xone-swe-web` (Vite SPA + Express) — read-only.
 
 ## Tech Summary
 
@@ -37,66 +40,59 @@ A **static marketing website** deployed as a **single Next.js app on Vercel**. T
 | Framework | Next.js 15 (App Router), Turbopack in dev |
 | Language | TypeScript (`strict: true`) |
 | Styling | Tailwind CSS v4 + shadcn/ui |
-| Typography | Geist Sans (`@fontsource-variable/geist`) |
-| Validation | Zod at Route Handler boundary (v1.1 forms) |
+| Typography | Geist Sans |
+| Validation | Zod (v1.1 form APIs) |
 | API | Route Handlers — health only in v1 |
-| Hosting | **Vercel only** (repo root = app root) |
+| Hosting | **Vercel** (repo root) |
 | Testing | Vitest |
 | Local dev port | **5142** |
 
-## Timeline (4 weeks)
+## Timeline (4 weeks) — complete
 
-| Week | Focus |
-|------|-------|
-| Week 1 | Bootstrap + projects page + email contact (**done**) |
-| Week 2 | Homepage sections + Services/About/Process pages (**done**) |
-| Week 3 | Legal copy, SEO, PM project case studies (**done**) |
-| Week 4 | Vercel deploy + QA sign-off |
+| Week | Focus | Status |
+|------|-------|--------|
+| Week 1 | Bootstrap + email contact + projects | Done |
+| Week 2 | Homepage + Services/About/Process | Done |
+| Week 3 | Legal, SEO, security headers | Done |
+| Week 4 | Vercel deploy + QA | Done |
 
-See `SPRINT_PLAN_v1.md` for deliverables and exit criteria per week.
+See `SPRINT_PLAN_v1.md` for details.
 
-## Key Roles
+## Security posture (v1)
 
-| Role | Responsibility |
-|------|----------------|
-| **PM** | Backlog, sprint plan, copy/legal, project showcase content, deploy sign-off |
-| **Tech Lead** | Architecture, security, code review |
-| **Fullstack** | Bootstrap, CI, env, Vercel, cross-cutting features |
-| **Frontend** | Pages, components, brand, accessibility |
-| **Backend** | Route Handlers when v1.1 forms approved |
-| **QA** | Smoke/regression, production checklist |
+| Area | v1 status | Notes |
+|------|-----------|--------|
+| Attack surface | **Low** | Static pages + one public GET endpoint |
+| Secrets in client | **None** | No `NEXT_PUBLIC_*` secrets; no `.env` in repo |
+| Response headers | **Configured** | X-Frame-Options, nosniff, Referrer-Policy, Permissions-Policy |
+| User input | **N/A** | No forms or POST APIs in v1 |
+| HTTPS | **Vercel default** | TLS on all production traffic |
+| Email harvesting | **Accepted risk** | Public `mailto:` address; mitigated by business need |
+| Legal copy | **Placeholder** | Compliance review optional before high traffic |
+| Dependency CVEs | **Monitor** | Run `npm audit` periodically; enable Dependabot on GitHub |
 
-Role workflows: `TEAM_INSTRUCTIONS.md`
+**Before v1.1 (forms):** rate limiting, Zod at API boundary, generic error responses, no webhook secrets in client.
 
-## Open Decisions
+**Optional hardening (not required for v1):** Content-Security-Policy, Vercel Deployment Protection on previews, lawyer-reviewed Privacy/Terms.
 
-1. **Production domain** — set in Vercel + `SITE_URL` before final sign-off (**your action**)
-2. **v1.1 forms** — if/when to add POST APIs, rate limit provider, webhook
+## Open decisions (post-v1)
 
-## Deployment status
+1. **v1.1 forms** — if/when to add POST APIs + rate limiting
+2. **Custom domain** — if not on one yet, add in Vercel + `SITE_URL`
+3. **Legal review** — replace placeholder Privacy/Terms when ready
 
-| Step | Status |
-|------|--------|
-| Local build + CI | Ready |
-| `DEPLOY.md` + README | **Done** |
-| Vercel project connected | **Pending — you** |
-| `SITE_URL` in Vercel | **Pending — you** |
-| Custom domain | **Optional — you** |
-| Post-deploy QA checklist | **Pending — you** (see `DEPLOY.md`) |
-| PM + Tech Lead sign-off | **Pending** |
+## Success criteria
 
-## Success Criteria
-
-Matches `PROJECT_INFO_NEXT.md` §17: all routes live (including `/projects`), email CTAs work, `/get-started` → `/projects`, legal pages linked, CI green, no separate backend.
+All `PROJECT_INFO_NEXT.md` §17 criteria met for v1 ship.
 
 ## Related Documentation
 
 | Document | Purpose |
 |----------|---------|
-| `PROJECT_INFO_NEXT.md` | Authoritative spec and porting map |
+| `PROJECT_INFO_NEXT.md` | Authoritative spec |
 | `AGENTS.md` | Engineering rules |
 | `TEAM_INSTRUCTIONS.md` | Role responsibilities |
-| `SPRINT_PLAN_v1.md` | Week-by-week plan |
-| `BACKLOGS_v1.md` | Prioritized backlog |
-| `README.md` | Local setup and commands |
-| `DEPLOY.md` | Vercel setup, env vars, post-deploy QA checklist |
+| `SPRINT_PLAN_v1.md` | Week-by-week plan (complete) |
+| `BACKLOGS_v1.md` | Backlog + v1.1 items |
+| `README.md` | Local setup |
+| `DEPLOY.md` | Vercel + post-deploy checklist |

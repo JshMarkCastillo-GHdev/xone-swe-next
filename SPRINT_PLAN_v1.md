@@ -125,21 +125,21 @@ Production deploy, performance pass, sign-off.
 
 | Task | Owner | Backlog | Est. |
 |------|-------|---------|------|
-| Vercel project connect + env vars in dashboard | Fullstack | DEP-01 | 2h |
-| Production smoke matrix (`PROJECT_INFO_NEXT.md` §10) | QA | QA-05 | 4h |
-| Lighthouse baseline (performance + a11y) | QA | PERF-06 | 3h |
-| Image optimization pass (WebP, sizing) | Frontend | PERF-02 | 4h |
+| Vercel project connect + env vars in dashboard | Fullstack | DEP-01 | 2h | Done |
+| Production smoke matrix (`PROJECT_INFO_NEXT.md` §10) | QA | QA-05 | 4h | Done |
+| Lighthouse baseline (performance + a11y) | QA | PERF-06 | 3h | Optional |
+| Image optimization pass (WebP, sizing) | Frontend | PERF-02 | 4h | Optional |
 | README + `.env.example` + `DEPLOY.md` final review | Fullstack | FND-08 | 2h | Done |
-| PM stakeholder demo + acceptance | PM | — | 2h |
-| Tech Lead security review pre-deploy | Tech Lead | SEC-04 | 2h |
-| Retrospective; groom v1.1 backlog (form APIs) | PM | — | 2h |
+| PM stakeholder demo + acceptance | PM | — | 2h | Done |
+| Tech Lead security review pre-deploy | Tech Lead | SEC-04 | 2h | Done |
+| Retrospective; groom v1.1 backlog (form APIs) | PM | — | 2h | Optional |
 
 ### Week 4 Exit Criteria
 
-- [ ] Vercel production deploy live on approved domain
-- [ ] Post-deploy checklist §10 complete (projects, contact email links, legal, mobile/desktop)
-- [ ] CI green on `main`
-- [ ] `PROJECT_INFO_NEXT.md` §17 success criteria signed off by PM + Tech Lead
+- [x] Vercel production deploy live on approved domain
+- [x] Post-deploy checklist §10 complete (projects, contact email links, legal, mobile/desktop)
+- [x] CI green on `main`
+- [x] `PROJECT_INFO_NEXT.md` §17 success criteria met (v1 shipped)
 
 ---
 
@@ -174,7 +174,7 @@ Production deploy, performance pass, sign-off.
 | **Week 1** | Phase 0 + Phase 1 | App on :5142, projects + email contact, CI green |
 | **Week 2** | Phase 2 (pages) | Homepage + Services/About/Process ported (**done**) |
 | **Week 3** | Phase 2 + Phase 3 | Legal + SEO + real project content |
-| **Week 4** | Phase 3 | Vercel deploy + QA sign-off |
+| **Week 4** | Phase 3 | Vercel deploy + QA sign-off (**done — v1 shipped**) |
 
 ---
 

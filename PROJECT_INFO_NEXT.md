@@ -411,14 +411,16 @@ Adapted from source `AGENTS.md`:
 
 ## 17. Success criteria (Next v1 done)
 
-- [ ] Single Next.js repo runs locally with `npm run dev` on port **5142** (Turbopack)
-- [ ] All routes in §4 live with Xone branding (including `/projects`)
-- [ ] Email-only lead capture works (`mailto:` from Contact, Projects, homepage)
-- [ ] `/get-started` redirects to `/projects`
-- [ ] Privacy + Terms pages linked from footer
-- [ ] CI green: lint, test, build
-- [ ] No separate backend service or CORS configuration
-- [ ] README documents setup and Vercel deploy
+- [x] Single Next.js repo runs locally with `npm run dev` on port **5142** (Turbopack)
+- [x] All routes in §4 live with Xone branding (including `/projects`)
+- [x] Email-only lead capture works (`mailto:` from Contact, Projects, homepage)
+- [x] `/get-started` redirects to `/projects`
+- [x] Privacy + Terms pages linked from footer
+- [x] CI green: lint, test, build
+- [x] No separate backend service or CORS configuration
+- [x] README documents setup and Vercel deploy
+
+**Shipped:** production on Vercel; smoke tests and sitemap/robots verified (June 2026).
 
 **v1.1 add-ons (not required for v1 sign-off):** online forms, Zod POST validation, rate limiting, webhook.
 
