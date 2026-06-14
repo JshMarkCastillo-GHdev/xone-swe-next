@@ -89,3 +89,8 @@ export const projects: readonly Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
   },
 ] as const;
+
+/** Homepage featured work — three client-facing case studies (excludes meta site entry). */
+export const featuredProjects: readonly Project[] = projects.filter(
+  (p) => p.id !== "xone-marketing-next",
+).slice(0, 3);

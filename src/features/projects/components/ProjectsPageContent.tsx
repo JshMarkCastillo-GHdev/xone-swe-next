@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 
+import { ProjectCard } from "@/components/marketing/project-card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -8,33 +9,51 @@ import {
   BRAND_NAME,
   CONTACT_EMAIL,
 } from "@/lib/brand";
-import {
-  projectCategories,
-  projects,
-} from "@/features/projects/data/projects";
+import { projects } from "@/features/projects/data/projects";
 
 export function ProjectsPageContent() {
   return (
-    <div className="bg-xone-section px-4 py-12 sm:px-6 lg:px-8">
+    <div className="bg-background px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-12 text-center">
-          <p className="mb-3 text-sm font-medium uppercase tracking-wide text-xone-violet">
+        <header className="mb-10 max-w-2xl sm:mb-12">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-xone-violet">
             Portfolio
           </p>
-          <h1 className="text-3xl font-bold text-foreground sm:text-5xl">
-            View our projects
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Our projects
           </h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            A sample of the kinds of software {BRAND_NAME} delivers. Interested
-            in something similar? Email us — we respond within one business day.
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Case studies from {BRAND_NAME}. See something close to your needs?
+            Email us — we respond within one business day.
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={buildContactMailto("Project inquiry from portfolio")}
-              className={cn(buttonVariants({ size: "lg" }), "gap-2")}
-            >
-              <Mail className="size-4" aria-hidden />
-              Email {CONTACT_EMAIL}
+          <a
+            href={buildContactMailto("Project inquiry from portfolio")}
+            className={cn(buttonVariants({ size: "lg" }), "mt-6 inline-flex gap-2")}
+          >
+            <Mail className="size-4" aria-hidden />
+            Email {CONTACT_EMAIL}
+          </a>
+        </header>
+
+        <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
+          {projects.map((project) => (
+            <li key={project.id}>
+              <ProjectCard project={project} variant="full" />
+            </li>
+          ))}
+        </ul>
+
+        <aside className="mt-12 border-t border-border pt-10 text-center sm:text-left">
+          <h2 className="text-xl font-semibold text-foreground">
+            Have a project in mind?
+          </h2>
+          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground sm:mx-0">
+            Tell us about your goals by email. We will follow up to schedule a
+            discovery call.
+          </p>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-start">
+            <a href={buildContactMailto()} className={buttonVariants({ size: "lg" })}>
+              Send us an email
             </a>
             <Link
               href="/contact"
@@ -43,76 +62,6 @@ export function ProjectsPageContent() {
               Contact details
             </Link>
           </div>
-        </header>
-
-        <ul className="grid gap-6 sm:grid-cols-2">
-          {projects.map((project) => (
-            <li
-              key={project.id}
-              className="flex flex-col rounded-xl border border-border bg-background p-6 shadow-sm transition-shadow hover:shadow-md"
-            >
-              <p className="text-xs font-medium uppercase tracking-wide text-xone-violet">
-                {projectCategories[project.category]}
-              </p>
-              <h2 className="mt-2 text-xl font-semibold text-foreground">
-                {project.title}
-              </h2>
-              <p className="mt-3 flex-1 text-sm text-muted-foreground">
-                {project.summary}
-              </p>
-              <p className="mt-3 text-sm text-foreground/80">
-                <span className="font-medium text-foreground">Challenge: </span>
-                {project.challenge}
-              </p>
-              <div className="mt-4">
-                <p className="text-xs font-medium uppercase tracking-wide text-xone-violet">
-                  Outcomes
-                </p>
-                <ul className="mt-2 list-disc space-y-1 pl-4 text-sm text-muted-foreground">
-                  {project.outcomes.map((outcome) => (
-                    <li key={outcome}>{outcome}</li>
-                  ))}
-                </ul>
-              </div>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <li
-                    key={tag}
-                    className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
-                  >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-              {project.href ? (
-                <a
-                  href={project.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-xone-violet hover:underline"
-                >
-                  View project
-                  <ArrowUpRight className="size-4" aria-hidden />
-                </a>
-              ) : null}
-            </li>
-          ))}
-        </ul>
-
-        <aside className="mt-12 rounded-xl border border-xone-violet/20 bg-xone-violet/5 p-8 text-center">
-          <h2 className="text-xl font-semibold text-foreground">
-            Have a project in mind?
-          </h2>
-          <p className="mx-auto mt-2 max-w-lg text-sm text-muted-foreground">
-            Tell us about your goals by email. No forms required for v1 — we
-            will follow up to schedule a discovery call.
-          </p>
-          <a
-            href={buildContactMailto()}
-            className={cn(buttonVariants(), "mt-6 inline-flex")}
-          >
-            Send us an email
-          </a>
         </aside>
       </div>
     </div>

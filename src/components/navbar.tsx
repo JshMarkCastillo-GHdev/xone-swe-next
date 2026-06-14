@@ -17,12 +17,11 @@ import {
 import { brandAssets, BRAND_NAME } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 
+/** Primary nav — Process lives in footer to reduce noise (B + C). */
 const navLinks = [
-  { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
   { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
-  { href: "/process", label: "Process" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -33,18 +32,18 @@ type NavbarProps = {
 function navLinkClass(isActive: boolean, mobile = false) {
   if (mobile) {
     return cn(
-      "block rounded-lg px-4 py-3 text-base font-medium transition-colors",
+      "block rounded-md px-4 py-3 text-base font-medium transition-colors",
       isActive
-        ? "bg-xone-accent-muted text-xone-violet"
-        : "text-foreground hover:bg-muted hover:text-xone-violet",
+        ? "bg-white/10 text-white"
+        : "text-xone-gray-light/90 hover:bg-white/5 hover:text-white",
     );
   }
 
   return cn(
-    "text-sm font-medium transition-colors",
+    "relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:scale-x-0 after:bg-xone-cyan after:transition-transform motion-safe:after:duration-200",
     isActive
-      ? "text-xone-violet"
-      : "text-muted-foreground hover:text-foreground",
+      ? "text-white after:scale-x-100"
+      : "text-xone-gray-light/90 hover:text-white hover:after:scale-x-100",
   );
 }
 
@@ -52,26 +51,35 @@ export function Navbar({ className }: NavbarProps) {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isHome = pathname === "/";
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80",
+        "sticky top-0 z-50 border-b border-white/10 bg-xone-navy shadow-sm",
         className,
       )}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-3 px-4 sm:h-20 sm:gap-4 sm:px-6">
+        <Link
+          href="/"
+          className="flex shrink-0 items-center py-2"
+          aria-current={isHome ? "page" : undefined}
+        >
           <Image
-            src={brandAssets.logo}
+            src={brandAssets.logoInverse}
             alt={BRAND_NAME}
-            width={140}
-            height={36}
+            width={220}
+            height={48}
             priority
-            className="h-8 w-auto"
+            className="h-9 w-auto max-w-[min(52vw,220px)] sm:h-11 sm:max-w-[220px]"
           />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
+        <nav
+          aria-label="Primary"
+          className="hidden items-center gap-7 lg:flex"
+        >
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -88,30 +96,40 @@ export function Navbar({ className }: NavbarProps) {
             href="/projects"
             className={cn(
               buttonVariants({ size: "default" }),
-              "hidden sm:inline-flex",
+              "hidden border border-white/20 bg-xone-violet text-white hover:bg-xone-violet/90 sm:inline-flex",
             )}
           >
-            View Our Projects
+            View projects
           </Link>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
-                "md:hidden",
+                "text-white hover:bg-white/10 hover:text-white lg:hidden",
               )}
               aria-label="Open navigation menu"
             >
               <MenuIcon className="size-5" />
             </SheetTrigger>
-            <SheetContent side="right" className="w-[min(100vw-2rem,20rem)]">
+            <SheetContent
+              side="right"
+              className="border-white/10 bg-xone-navy text-xone-light w-[min(100vw-2rem,20rem)]"
+            >
               <SheetHeader>
-                <SheetTitle>Menu</SheetTitle>
+                <SheetTitle className="text-white">Menu</SheetTitle>
               </SheetHeader>
               <nav
                 aria-label="Mobile navigation"
-                className="flex flex-col gap-1 px-2"
+                className="flex flex-col gap-1 px-1 pt-2"
               >
+                <Link
+                  href="/"
+                  className={navLinkClass(pathname === "/", true)}
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Home
+                </Link>
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
@@ -126,11 +144,11 @@ export function Navbar({ className }: NavbarProps) {
                   href="/projects"
                   className={cn(
                     buttonVariants({ size: "lg" }),
-                    "mt-4 w-full",
+                    "mt-4 w-full bg-xone-violet text-white hover:bg-xone-violet/90",
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
-                  View Our Projects
+                  View projects
                 </Link>
               </nav>
             </SheetContent>

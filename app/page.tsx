@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 
-import { CtaSection } from "@/features/home/components/CtaSection";
-import { HeroSection } from "@/features/home/components/HeroSection";
-import { MissionSection } from "@/features/home/components/MissionSection";
-import { ProcessSection } from "@/features/home/components/ProcessSection";
-import { ServicesSection } from "@/features/home/components/ServicesSection";
-import { ValuePropsSection } from "@/features/home/components/ValuePropsSection";
-import "@/features/home/styles/home-swiper.css";
+import { FeaturedProjectsSection } from "@/features/home/components/FeaturedProjectsSection";
+import { HomeCtaSection } from "@/features/home/components/HomeCtaSection";
+import { HomeHero } from "@/features/home/components/HomeHero";
+import { TeamStripSection } from "@/features/home/components/TeamStripSection";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata: Metadata = createPageMetadata({
@@ -16,15 +13,10 @@ export const metadata: Metadata = createPageMetadata({
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <MissionSection />
-      <ServicesSection />
-      <hr className="border border-white" />
-      <ValuePropsSection />
-      <hr className="border-white" />
-      <ProcessSection />
-      <hr className="border-white" />
-      <CtaSection />
+      <HomeHero />
+      <FeaturedProjectsSection />
+      <TeamStripSection />
+      <HomeCtaSection />
     </>
   );
 }
