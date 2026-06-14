@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { TeamMemberAvatar } from "@/components/team-member-avatar";
-import { paddedTeamMembers } from "@/features/home/lib/team-carousel";
+import { teamMembers } from "@/features/home/lib/team-carousel";
 import "@/features/home/styles/home-swiper.css";
 import { BRAND_SHORT } from "@/lib/brand";
 
@@ -68,8 +68,8 @@ export function MissionSection() {
             Meet Our Team
           </h3>
           <p className="mx-auto mb-8 mt-4 max-w-3xl text-base font-medium leading-relaxed text-muted-foreground sm:text-lg lg:text-2xl">
-            Comprehensive digital solutions designed to transform your business
-            and accelerate growth
+            The engineers behind {BRAND_SHORT} — building reliable software with
+            clarity and momentum.
           </p>
           <div className="w-full">
             <Swiper
@@ -77,7 +77,7 @@ export function MissionSection() {
               loop={false}
               slidesPerView={1}
               slidesPerGroup={1}
-              spaceBetween={10}
+              spaceBetween={16}
               pagination={{ el: ".swiper-pagination", clickable: true }}
               navigation={{
                 nextEl: ".swiper-button-next",
@@ -87,30 +87,37 @@ export function MissionSection() {
                 640: {
                   slidesPerView: 1,
                   slidesPerGroup: 1,
-                  spaceBetween: 8,
+                  spaceBetween: 16,
                   centeredSlides: true,
                 },
+                768: {
+                  slidesPerView: 2,
+                  slidesPerGroup: 1,
+                  spaceBetween: 16,
+                  centeredSlides: false,
+                },
                 1024: {
-                  slidesPerView: 5,
-                  slidesPerGroup: 5,
-                  spaceBetween: 10,
+                  slidesPerView: 3,
+                  slidesPerGroup: 1,
+                  spaceBetween: 20,
                   centeredSlides: false,
                 },
               }}
               className="home-team-swiper px-2 sm:px-4"
             >
-              {paddedTeamMembers.map((member, index) => (
-                <SwiperSlide key={`${member.name}-${index}`}>
-                  <div className="mx-auto flex h-[420px] w-full max-w-[330px] flex-col items-center rounded-lg bg-white p-6 shadow-md sm:h-[500px]">
+              {teamMembers.map((member) => (
+                <SwiperSlide key={member.name}>
+                  <div className="mx-auto flex h-[420px] w-full max-w-[330px] flex-col items-center rounded-lg bg-white p-6 shadow-md sm:h-[480px]">
                     <TeamMemberAvatar
                       initials={member.initials}
                       name={member.name}
+                      photoSrc={member.photoSrc}
                       size="lg"
                     />
-                    <h4 className="mb-2 mt-6 text-xl font-semibold text-foreground">
+                    <h4 className="mb-2 mt-6 text-lg font-semibold text-foreground sm:text-xl">
                       {member.name}
                     </h4>
-                    <p className="text-center text-muted-foreground">
+                    <p className="text-center text-sm text-muted-foreground sm:text-base">
                       {member.role}
                     </p>
                   </div>
