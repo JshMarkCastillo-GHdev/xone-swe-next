@@ -109,12 +109,12 @@ Replace `BASE` with your production URL (e.g. `https://your-app.vercel.app` or c
 
 ### Lead capture (email-only v1)
 
-| Check                                         | Pass |
-| --------------------------------------------- | ---- |
-| Contact page shows `hello@xonesoftware.dev`   | ☐    |
-| `mailto:` link opens mail client (or prompts) | ☐    |
-| Projects page email CTAs work                 | ☐    |
-| Homepage CTA → Projects + Email               | ☐    |
+| Check                                                 | Pass |
+| ----------------------------------------------------- | ---- |
+| Contact page shows `xonesoftware.marketing@gmail.com` | ☐    |
+| `mailto:` link opens mail client (or prompts)         | ☐    |
+| Projects page email CTAs work                         | ☐    |
+| Homepage CTA → Projects + Email                       | ☐    |
 
 ### SEO & infra
 

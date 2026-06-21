@@ -261,7 +261,7 @@ Known source issue: decorative paths like `/assets/images/shape1.png` may 404 â€
 ## 9. Navigation and footer
 
 **Navbar links (v1):** Home, Projects, Services, About, Process, Contact + CTA **View Our Projects** â†’ `/projects`.  
-**Lead capture:** `mailto:hello@xonesoftware.dev` (see `src/lib/brand.ts`) on Contact, Projects, and homepage CTAs.  
+**Lead capture:** `mailto:xonesoftware.marketing@gmail.com` (see `src/lib/brand.ts`) on Contact, Projects, and homepage CTAs.  
 **Footer:** Projects, Services, Company (About, Contact, Privacy, Terms).
 
 Source: `FrontEnd/src/components/Navbar.tsx`, `Footer.tsx`

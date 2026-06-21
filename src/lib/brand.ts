@@ -4,9 +4,9 @@ export const BRAND_NAME = "Xone Software Development";
 export const BRAND_SHORT = "Xone";
 
 /** Public contact channels (v1 — email-only lead capture) */
-export const CONTACT_EMAIL = "hello@xonesoftware.dev";
-export const CONTACT_PHONE = "+15551234567";
-export const CONTACT_PHONE_DISPLAY = "+1 (555) 123-4567";
+export const CONTACT_EMAIL = "xonesoftware.marketing@gmail.com";
+export const CONTACT_PHONE = "+639533720594";
+export const CONTACT_PHONE_DISPLAY = "09533720594";
 export const CONTACT_LOCATION = "Remote-first team serving clients worldwide";
 
 /** Official palette from xone_brand_kit/README.txt */
