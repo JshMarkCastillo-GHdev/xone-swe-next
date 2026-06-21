@@ -39,7 +39,9 @@ for (const path of TOUCH_TARGET_ROUTES) {
     }
 
     if (path === "/") {
-      const heroSection = page.locator('section[aria-labelledby="home-hero-heading"]');
+      const heroSection = page.locator(
+        'section[aria-labelledby="home-hero-heading"]',
+      );
       const heroCtas = heroSection.getByRole("link");
       const ctaCount = await heroCtas.count();
       for (let i = 0; i < ctaCount; i++) {

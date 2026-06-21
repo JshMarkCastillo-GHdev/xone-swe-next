@@ -224,10 +224,10 @@ Each teammate commits their own work to the **shared active branch**. Use **brie
 
 ### CI/CD (GitHub Actions + Vercel)
 
-| Layer             | Trigger                                       | What it runs                                                   |
-| ----------------- | --------------------------------------------- | -------------------------------------------------------------- |
+| Layer             | Trigger                                       | What it runs                                                                                                 |
+| ----------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | **CI** (`ci.yml`) | Every push and pull request                   | `npm run lint` → `npm run format:check` → `npm run test:unit` → `npm run build` → Playwright E2E (repo root) |
-| **CD** (Vercel)   | Push/merge to `main` (Vercel Git integration) | Production deploy after CI green; env vars in Vercel dashboard |
+| **CD** (Vercel)   | Push/merge to `main` (Vercel Git integration) | Production deploy after CI green; env vars in Vercel dashboard                                               |
 
 **No GitHub Pages workflow.** App Router handles routing; do not add SPA rewrite rules.
 

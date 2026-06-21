@@ -8,7 +8,9 @@ export async function assertNoHorizontalOverflow(page: Page): Promise<void> {
     return doc.scrollWidth > doc.clientWidth;
   });
   if (overflow) {
-    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    const scrollWidth = await page.evaluate(
+      () => document.documentElement.scrollWidth,
+    );
     const innerWidth = await page.evaluate(() => window.innerWidth);
     throw new Error(
       `Horizontal overflow detected: scrollWidth=${scrollWidth}, innerWidth=${innerWidth}`,
@@ -30,13 +32,22 @@ export async function closeMobileNavViaEscape(page: Page): Promise<void> {
   });
 }
 
+export async function assertMinTouchTarget(
+  locator: Locator,
+  min = 44,
+): Promise<void> {
+  await assertTouchTargetMinSize(locator, min);
+}
+
 export async function assertTouchTargetMinSize(
   locator: Locator,
   min = 44,
 ): Promise<void> {
   const box = await locator.boundingBox();
   if (!box) {
-    throw new Error("Touch target locator is not visible or has no bounding box");
+    throw new Error(
+      "Touch target locator is not visible or has no bounding box",
+    );
   }
   if (box.width < min || box.height < min) {
     throw new Error(

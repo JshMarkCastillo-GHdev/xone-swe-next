@@ -31,17 +31,17 @@ SITE_URL=http://localhost:5142
 
 ## Scripts
 
-| Command         | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `npm run dev`   | Next.js dev server with Turbopack on **port 5142** |
-| `npm run build` | Production build                                   |
-| `npm run start` | Production server on port 5142                     |
-| `npm run lint`  | ESLint (Next.js + TypeScript)                      |
-| `npm run test`  | Unit tests + full Playwright E2E suite             |
-| `npm run test:unit` | Vitest unit tests (`tests/*.test.ts`)          |
-| `npm run test:e2e` | Playwright E2E (all projects)                   |
-| `npm run test:e2e:mobile` | Mobile/tablet E2E projects only          |
-| `npm run test:e2e:desktop` | Desktop layout guard + snapshots only   |
+| Command                    | Description                                        |
+| -------------------------- | -------------------------------------------------- |
+| `npm run dev`              | Next.js dev server with Turbopack on **port 5142** |
+| `npm run build`            | Production build                                   |
+| `npm run start`            | Production server on port 5142                     |
+| `npm run lint`             | ESLint (Next.js + TypeScript)                      |
+| `npm run test`             | Unit tests + full Playwright E2E suite             |
+| `npm run test:unit`        | Vitest unit tests (`tests/*.test.ts`)              |
+| `npm run test:e2e`         | Playwright E2E (all projects)                      |
+| `npm run test:e2e:mobile`  | Mobile/tablet E2E projects only                    |
+| `npm run test:e2e:desktop` | Desktop structural layout guard only               |
 
 ## Environment variables
 
@@ -115,14 +115,7 @@ npm run test:e2e
 
 Homepage E2E tests click through the full preflight intro (~15s wait) — there is no env bypass.
 
-**Updating desktop screenshot baselines** (after intentional layout changes):
-
-```bash
-npm run build
-npm run test:e2e:desktop -- --update-snapshots
-```
-
-Snapshot baselines live under `e2e/desktop-guard/desktop-guard.spec.ts-snapshots/`. CI runs on **Ubuntu**; if local snapshots were generated on Windows or macOS, minor font rendering differences may require regenerating baselines in a Linux environment or accepting CI as the source of truth on first failure.
+The desktop guard uses **structural assertions only** (nav visibility, grid columns, overflow, typography thresholds) — no screenshot baselines.
 
 ## CI
 

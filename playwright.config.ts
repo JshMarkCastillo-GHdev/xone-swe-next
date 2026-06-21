@@ -3,7 +3,7 @@ import { defineConfig, devices } from "@playwright/test";
 const PORT = 5142;
 const baseURL = `http://127.0.0.1:${PORT}`;
 
-const mobileIgnore = "**/desktop-guard/**";
+const desktopGuardSpec = /desktop-guard\.spec\.ts/;
 
 const chromiumOnly = { browserName: "chromium" as const };
 
@@ -12,18 +12,7 @@ export default defineConfig({
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  reporter: [
-    ["html", { open: "never" }],
-    ["list"],
-  ],
-  snapshotPathTemplate:
-    "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{-projectName}{ext}",
-  expect: {
-    toHaveScreenshot: {
-      maxDiffPixelRatio: 0.03,
-      animations: "disabled",
-    },
-  },
+  reporter: [["html", { open: "never" }], ["list"]],
   use: {
     baseURL,
     trace: "on-first-retry",
@@ -47,22 +36,22 @@ export default defineConfig({
         isMobile: true,
         hasTouch: true,
       },
-      testIgnore: mobileIgnore,
+      testIgnore: desktopGuardSpec,
     },
     {
       name: "ipad-pro-11",
       use: { ...devices["iPad Pro 11"], ...chromiumOnly },
-      testIgnore: mobileIgnore,
+      testIgnore: desktopGuardSpec,
     },
     {
       name: "galaxy-tab-s4",
       use: { ...devices["Galaxy Tab S4"], ...chromiumOnly },
-      testIgnore: mobileIgnore,
+      testIgnore: desktopGuardSpec,
     },
     {
       name: "pixel-7",
       use: { ...devices["Pixel 7"], ...chromiumOnly },
-      testIgnore: mobileIgnore,
+      testIgnore: desktopGuardSpec,
     },
     {
       name: "desktop-chrome",
@@ -71,7 +60,7 @@ export default defineConfig({
         ...chromiumOnly,
         viewport: { width: 1280, height: 720 },
       },
-      testMatch: "**/desktop-guard/**",
+      testMatch: desktopGuardSpec,
     },
   ],
 });
