@@ -4,7 +4,7 @@ Greenfield **Next.js App Router** rebuild of the Xone marketing site. Single app
 
 **Spec:** [`PROJECT_INFO_NEXT.md`](./PROJECT_INFO_NEXT.md) · **Sprint plan:** [`SPRINT_PLAN_v1.md`](./SPRINT_PLAN_v1.md) · **Deploy:** [`DEPLOY.md`](./DEPLOY.md)
 
-**v1 lead capture:** **View Our Projects** (`/projects`) + **email-only** contact (`mailto:hello@xonesoftware.dev`). Online forms deferred to v1.1.
+**v1 lead capture:** **View Our Projects** (`/projects`) + **email-only** contact (`mailto:xonesoftware.marketing@gmail.com`). Online forms deferred to v1.1.
 
 **Status:** **v1 shipped** on Vercel (June 2026).
 
@@ -37,7 +37,11 @@ SITE_URL=http://localhost:5142
 | `npm run build` | Production build                                   |
 | `npm run start` | Production server on port 5142                     |
 | `npm run lint`  | ESLint (Next.js + TypeScript)                      |
-| `npm run test`  | Vitest unit tests (`tests/*.test.ts`)              |
+| `npm run test`  | Unit tests + full Playwright E2E suite             |
+| `npm run test:unit` | Vitest unit tests (`tests/*.test.ts`)          |
+| `npm run test:e2e` | Playwright E2E (all projects)                   |
+| `npm run test:e2e:mobile` | Mobile/tablet E2E projects only          |
+| `npm run test:e2e:desktop` | Desktop layout guard + snapshots only   |
 
 ## Environment variables
 
@@ -82,9 +86,47 @@ tests/               # Vitest tests
 | `/api/contact`     | POST   | **v1.1** — deferred |
 | `/api/get-started` | POST   | **v1.1** — deferred |
 
+## Testing
+
+### Unit tests
+
+```bash
+npm run test:unit
+```
+
+Vitest specs live in `tests/`.
+
+### E2E tests (Playwright)
+
+**Prerequisite:** install the Chromium browser once:
+
+```bash
+npx playwright install chromium
+```
+
+Run mobile/tablet specs first, then desktop guard, then the full matrix:
+
+```bash
+npm run build
+npm run test:e2e:mobile
+npm run test:e2e:desktop
+npm run test:e2e
+```
+
+Homepage E2E tests click through the full preflight intro (~15s wait) — there is no env bypass.
+
+**Updating desktop screenshot baselines** (after intentional layout changes):
+
+```bash
+npm run build
+npm run test:e2e:desktop -- --update-snapshots
+```
+
+Snapshot baselines live under `e2e/desktop-guard/desktop-guard.spec.ts-snapshots/`. CI runs on **Ubuntu**; if local snapshots were generated on Windows or macOS, minor font rendering differences may require regenerating baselines in a Linux environment or accepting CI as the source of truth on first failure.
+
 ## CI
 
-GitHub Actions (`.github/workflows/ci.yml`) runs on every push and PR: lint → test → build.
+GitHub Actions (`.github/workflows/ci.yml`) runs on every push and PR: lint → format check → unit tests → build → Playwright E2E.
 
 ## Deployment (Vercel)
 
