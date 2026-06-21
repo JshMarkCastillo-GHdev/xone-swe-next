@@ -27,7 +27,10 @@ export function HomeHero() {
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Link
             href="/projects"
-            className={cn(buttonVariants({ size: "lg" }), "w-full sm:w-auto")}
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "min-h-11 w-full sm:w-auto",
+            )}
           >
             View our projects
           </Link>
@@ -35,7 +38,7 @@ export function HomeHero() {
             href={buildContactMailto("Project inquiry")}
             className={cn(
               buttonVariants({ variant: "outline", size: "lg" }),
-              "w-full sm:w-auto",
+              "min-h-11 w-full sm:w-auto",
             )}
           >
             Email us

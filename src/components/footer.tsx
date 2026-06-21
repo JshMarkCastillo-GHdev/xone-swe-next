@@ -60,22 +60,34 @@ export function Footer({ className }: FooterProps) {
           </h2>
           <ul className="space-y-2 text-sm text-xone-gray-light/90">
             <li>
-              <Link href="/about" className="hover:text-white">
+              <Link
+                href="/about"
+                className="flex min-h-11 items-center hover:text-white"
+              >
                 About
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="hover:text-white">
+              <Link
+                href="/contact"
+                className="flex min-h-11 items-center hover:text-white"
+              >
                 Contact
               </Link>
             </li>
             <li>
-              <Link href="/privacy" className="hover:text-white">
+              <Link
+                href="/privacy"
+                className="flex min-h-11 items-center hover:text-white"
+              >
                 Privacy Policy
               </Link>
             </li>
             <li>
-              <Link href="/terms" className="hover:text-white">
+              <Link
+                href="/terms"
+                className="flex min-h-11 items-center hover:text-white"
+              >
                 Terms of Service
               </Link>
             </li>

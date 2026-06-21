@@ -32,7 +32,7 @@ type NavbarProps = {
 function navLinkClass(isActive: boolean, mobile = false) {
   if (mobile) {
     return cn(
-      "block rounded-md px-4 py-3 text-base font-medium transition-colors",
+      "block min-h-11 rounded-md px-4 py-3 text-base font-medium transition-colors",
       isActive
         ? "bg-white/10 text-white"
         : "text-xone-gray-light/90 hover:bg-white/5 hover:text-white",
@@ -103,7 +103,7 @@ export function Navbar({ className }: NavbarProps) {
             <SheetTrigger
               className={cn(
                 buttonVariants({ variant: "ghost", size: "icon" }),
-                "text-white hover:bg-white/10 hover:text-white lg:hidden",
+                "size-11 min-h-11 min-w-11 text-white hover:bg-white/10 hover:text-white lg:hidden",
               )}
               aria-label="Open navigation menu"
             >
@@ -141,7 +141,7 @@ export function Navbar({ className }: NavbarProps) {
                   href="/projects"
                   className={cn(
                     buttonVariants({ size: "lg" }),
-                    "mt-4 w-full bg-xone-violet text-white hover:bg-xone-violet/90",
+                    "mt-4 min-h-11 w-full bg-xone-violet text-white hover:bg-xone-violet/90",
                   )}
                   onClick={() => setMobileOpen(false)}
                 >
