@@ -37,37 +37,53 @@ export const projectCategories: Record<ProjectCategory, string> = {
   "marketing-site": "Marketing site",
 };
 
+const RYAN_MAGDALITA = "Engr. Ryan Rey Magdalita";
+
 /** Showcase projects — PM-approved case study summaries for v1 portfolio. */
 export const projects: readonly Project[] = [
   {
-    id: "field-ops-dashboard",
-    title: "Field operations dashboard",
+    id: "smart-cubicle-main",
+    title: "Smart restroom preventive maintenance",
     summary:
-      "Unified web app for a regional services company to schedule crews, track job status, and report daily completion metrics.",
+      "IoT and machine-learning platform that monitors occupancy, air quality, and supplies — then surfaces predictive maintenance on a real-time admin dashboard.",
     challenge:
-      "Dispatch relied on spreadsheets and group texts. Supervisors lacked a single view of open jobs, and end-of-day reporting took more than an hour.",
+      "Campus restrooms were maintained on fixed schedules with no unified sensor data. Staff could not anticipate peak usage, air-quality issues, or supply shortages before complaints.",
     outcomes: [
-      "Cut daily reporting time from ~75 minutes to under 15",
-      "Single dashboard for dispatch, crew leads, and operations",
-      "Role-based views with audit-friendly status history",
+      "Layered sensor → Raspberry Pi → dashboard architecture with WebSocket updates",
+      "ML maintenance predictions using SVM, Random Forest, and ensemble models",
+      "Role-based JWT access for admins, janitors, and maintenance staff",
     ],
-    category: "web-app",
-    tags: ["Next.js", "TypeScript", "PostgreSQL", "Role-based access"],
+    category: "automation",
+    leadEngineer: RYAN_MAGDALITA,
+    href: "https://github.com/ryMGDLT/SMART_CUBICLE_MAIN",
+    tags: [
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "React",
+      "Tailwind CSS",
+      "Python",
+      "WebSocket",
+      "Machine learning",
+      "Raspberry Pi",
+    ],
   },
   {
-    id: "mobile-inspection-app",
-    title: "Mobile inspection & photo capture",
+    id: "esp32-controller-app",
+    title: "ESP32 mobile controller app",
     summary:
-      "Offline-capable React Native app for technicians completing site inspections with structured checklists and photo evidence.",
+      "Flutter Android app paired with ESP32 firmware to control relays and LEDs over Bluetooth or Wi-Fi, including voice commands for hands-free testing.",
     challenge:
-      "Technicians worked in low-connectivity areas. Paper forms were re-keyed nightly, causing delays and data entry errors.",
+      "Embedded coursework needed a reliable mobile-to-microcontroller workflow without manual serial debugging every session — especially when switching between lab Wi-Fi networks.",
     outcomes: [
-      "Offline-first workflows with background sync when online",
-      "Structured photo capture tied to checklist items",
-      "Same-day sync to operations team without manual re-entry",
+      "Dual Bluetooth and Wi-Fi control paths with auto-detected SSID prompts",
+      "Voice-driven GPIO control for four outputs (relay-ready for lighting)",
+      "Matched Flutter client and Arduino firmware via customizable BLE UUIDs",
     ],
     category: "mobile-app",
-    tags: ["React Native", "Offline-first", "Camera", "Sync"],
+    leadEngineer: RYAN_MAGDALITA,
+    href: "https://github.com/ryMGDLT/ESP32_Controller_APP",
+    tags: ["Flutter", "ESP32", "Arduino", "Bluetooth", "Wi-Fi", "Voice control"],
   },
   {
     id: "crm-lead-routing",
