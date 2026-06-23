@@ -125,23 +125,48 @@ export const projects: readonly Project[] = [
     ],
   },
   {
-    id: "xone-marketing-next",
-    title: "Xone marketing site rebuild",
+    id: "xone-software-solutions",
+    title: "Xone Software Solutions",
     summary:
-      "Next.js App Router marketing site with Xone branding, static portfolio content, and email-first lead capture on Vercel.",
+      "Company marketing site on Next.js App Router — portfolio showcase, services, team, and email-first lead capture deployed on Vercel.",
     challenge:
-      "The legacy SPA required a separate backend for simple lead flows. The team wanted faster deploys, clearer SEO, and a maintainable static-first architecture.",
+      "The legacy Vite SPA needed a separate backend for simple flows. The team wanted faster deploys, clearer SEO, and a maintainable static-first architecture.",
     outcomes: [
-      "Single Next.js app on Vercel — no separate backend in v1",
-      "Mobile-first pages with shared brand tokens and shadcn/ui",
-      "Portfolio and contact paths optimized for email conversion",
+      "Single Next.js app on Vercel with feature-based routes and shared brand tokens",
+      "Portfolio and preflight intro with Playwright mobile/tablet + desktop guard E2E",
+      "Email-only contact and projects CTAs — form APIs deferred to v1.1",
     ],
     category: "marketing-site",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+    teamCredits: [
+      {
+        name: "Engr. Jhon Bert Villarosa",
+        role: "Technical Lead / Project Manager",
+      },
+      {
+        name: "Engr. Ryan Rey Magdalita",
+        role: "Software Engineer / Lead Developer",
+      },
+      {
+        name: "Engr. Joshua Mark Castillo",
+        role: "Software Engineer / Full Stack Developer",
+      },
+    ],
+    href: "https://github.com/JshMarkCastillo-GHdev/xone-swe-next",
+    liveHref: "https://xone-software-solutions.vercel.app/",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Zod",
+      "Vitest",
+      "Playwright",
+      "Vercel",
+    ],
   },
 ] as const;
 
 /** Homepage featured work — three client-facing case studies (excludes meta site entry). */
 export const featuredProjects: readonly Project[] = projects
-  .filter((p) => p.id !== "xone-marketing-next")
+  .filter((p) => p.id !== "xone-software-solutions")
   .slice(0, 3);
