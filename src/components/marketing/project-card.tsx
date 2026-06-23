@@ -51,7 +51,10 @@ export function ProjectCard({
                   <span className="font-medium text-xone-violet">
                     {member.name}
                   </span>
-                  <span className="text-muted-foreground"> — {member.role}</span>
+                  <span className="text-muted-foreground">
+                    {" "}
+                    — {member.role}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -124,19 +127,19 @@ export function ProjectCard({
               isCompact ? "mt-4" : "mt-2 min-h-[4.75rem] content-start",
             )}
           >
-          {project.tags
-            .slice(0, isCompact ? 3 : project.tags.length)
-            .map((tag) => (
-              <li
-                key={tag}
-                className={cn(
-                  "rounded-md border px-2 py-0.5 text-xs font-medium",
-                  getProjectTagClassName(tag),
-                )}
-              >
-                {tag}
-              </li>
-            ))}
+            {project.tags
+              .slice(0, isCompact ? 3 : project.tags.length)
+              .map((tag) => (
+                <li
+                  key={tag}
+                  className={cn(
+                    "rounded-md border px-2 py-0.5 text-xs font-medium",
+                    getProjectTagClassName(tag),
+                  )}
+                >
+                  {tag}
+                </li>
+              ))}
           </ul>
         </div>
 

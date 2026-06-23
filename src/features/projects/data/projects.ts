@@ -83,7 +83,14 @@ export const projects: readonly Project[] = [
     category: "mobile-app",
     leadEngineer: RYAN_MAGDALITA,
     href: "https://github.com/ryMGDLT/ESP32_Controller_APP",
-    tags: ["Flutter", "ESP32", "Arduino", "Bluetooth", "Wi-Fi", "Voice control"],
+    tags: [
+      "Flutter",
+      "ESP32",
+      "Arduino",
+      "Bluetooth",
+      "Wi-Fi",
+      "Voice control",
+    ],
   },
   {
     id: "lightbox-studio-website",
