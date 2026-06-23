@@ -86,19 +86,43 @@ export const projects: readonly Project[] = [
     tags: ["Flutter", "ESP32", "Arduino", "Bluetooth", "Wi-Fi", "Voice control"],
   },
   {
-    id: "crm-lead-routing",
-    title: "CRM lead routing automation",
+    id: "lightbox-studio-website",
+    title: "LightBox Studio website",
     summary:
-      "Automation layer connecting web inquiries, CRM records, Slack alerts, and a lightweight reporting dashboard for sales ops.",
+      "Full-stack studio website for photography and videography — services, portfolio, gallery, and client booking flows on a Vercel-hosted Next.js app.",
     challenge:
-      "Inbound leads arrived through multiple channels with inconsistent follow-up. Sales managers could not see response-time trends.",
+      "The studio needed a professional public presence and reliable session booking without juggling separate tools for branding, media, and scheduling.",
     outcomes: [
-      "Normalized lead intake with validation at the API boundary",
-      "Automatic CRM assignment rules by territory and service line",
-      "Webhook notifications and weekly response-time summary",
+      "Feature-based App Router layout (studio, scheduling, media modules)",
+      "Mobile-first marketing pages with Playwright E2E layout guardrails",
+      "Integration-ready stack for Calendly, MongoDB Atlas, and Cloudinary",
     ],
-    category: "automation",
-    tags: ["Node.js", "Zod", "Webhooks", "CRM integrations"],
+    category: "marketing-site",
+    teamCredits: [
+      {
+        name: "Engr. Jhon Bert Villarosa",
+        role: "Project Lead / Manager",
+      },
+      {
+        name: "Engr. Ryan Rey Magdalita",
+        role: "Senior Lead Developer (Backend & Admin)",
+      },
+      {
+        name: "Engr. Joshua Mark Castillo",
+        role: "Full Stack Developer (Frontend & API)",
+      },
+    ],
+    liveHref: "https://lightbox-studio.vercel.app/",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Zod",
+      "Jest",
+      "Playwright",
+      "Vercel",
+    ],
   },
   {
     id: "xone-marketing-next",
