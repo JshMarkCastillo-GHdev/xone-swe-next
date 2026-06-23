@@ -34,10 +34,10 @@ export function ProjectsPageContent() {
           </a>
         </header>
 
-        <ul className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
+        <ul className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:gap-6">
           {projects.map((project) => (
-            <li key={project.id}>
-              <ProjectCard project={project} variant="full" />
+            <li key={project.id} className="flex">
+              <ProjectCard project={project} variant="full" className="w-full" />
             </li>
           ))}
         </ul>

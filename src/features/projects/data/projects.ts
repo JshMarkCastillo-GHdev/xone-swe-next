@@ -4,6 +4,11 @@ export type ProjectCategory =
   | "automation"
   | "marketing-site";
 
+export type ProjectTeamCredit = {
+  name: string;
+  role: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -14,8 +19,14 @@ export type Project = {
   /** Measurable or qualitative results */
   outcomes: readonly string[];
   category: ProjectCategory;
+  /** Xone engineer highlighted on the case study */
+  leadEngineer?: string;
+  /** Multi-role team credits when more than one member is featured */
+  teamCredits?: readonly ProjectTeamCredit[];
   /** Optional external demo or repo URL */
   href?: string;
+  /** Optional live deployment URL */
+  liveHref?: string;
   tags: readonly string[];
 };
 
