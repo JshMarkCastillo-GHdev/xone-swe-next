@@ -43,7 +43,9 @@ test.describe("desktop layout guard", () => {
     );
   });
 
-  test("projects: portfolio heading and two-column grid", async ({ page }) => {
+  test("projects: portfolio heading and coverflow carousel", async ({
+    page,
+  }) => {
     await visitRouteDesktop(page, "/projects");
 
     await assertDesktopNav(page);
@@ -51,7 +53,10 @@ test.describe("desktop layout guard", () => {
     await expect(
       page.getByRole("heading", { name: /Our projects/i }),
     ).toBeVisible();
-    await assertGridColumnCount(page, "main ul.grid", 2);
+    await expect(page.locator(".projects-coverflow-swiper")).toBeVisible();
+    await expect(
+      page.locator(".projects-coverflow-swiper .swiper-slide-active"),
+    ).toHaveCount(1);
   });
 
   test("services: heading visible and two-column service grid", async ({

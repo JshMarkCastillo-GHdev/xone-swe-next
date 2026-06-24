@@ -9,6 +9,8 @@ test("projects page renders portfolio grid", async ({ page }) => {
     page.getByRole("heading", { name: /Our projects/i }),
   ).toBeVisible();
 
-  const grid = page.locator("main ul.grid, ul.grid").first();
-  await expect(grid.locator("li")).not.toHaveCount(0);
+  await expect(page.locator(".projects-coverflow-swiper")).toBeVisible();
+  await expect(
+    page.locator(".projects-coverflow-swiper .swiper-slide-active"),
+  ).toHaveCount(1);
 });
