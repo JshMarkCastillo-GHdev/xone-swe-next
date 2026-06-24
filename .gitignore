@@ -44,3 +44,7 @@ yarn-error.log*
 
 # vitest
 .vitest
+
+# local import tooling (not part of the site)
+scripts/CLICKUP_IMPORT.md
+scripts/clickup-import-recent-work.csv
