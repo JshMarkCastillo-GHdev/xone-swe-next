@@ -1,17 +1,16 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
 
-import { ProjectCard } from "@/components/marketing/project-card";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { buildContactMailto, BRAND_NAME, CONTACT_EMAIL } from "@/lib/brand";
-import { projects } from "@/features/projects/data/projects";
+import { ProjectsCarousel } from "@/features/projects/components/ProjectsCarousel";
 
 export function ProjectsPageContent() {
   return (
     <div className="bg-background px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-10 max-w-2xl sm:mb-12">
+        <header className="mb-8 max-w-2xl sm:mb-10">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-xone-violet">
             Portfolio
           </p>
@@ -19,8 +18,9 @@ export function ProjectsPageContent() {
             Our projects
           </h1>
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Case studies from {BRAND_NAME}. See something close to your needs?
-            Email us — we respond within one business day.
+            Case studies from {BRAND_NAME}. Swipe or use the dots to browse —
+            the center card is in focus. Email us if something matches your
+            needs.
           </p>
           <a
             href={buildContactMailto("Project inquiry from portfolio")}
@@ -33,19 +33,13 @@ export function ProjectsPageContent() {
             Email {CONTACT_EMAIL}
           </a>
         </header>
+      </div>
 
-        <ul className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:gap-6">
-          {projects.map((project) => (
-            <li key={project.id} className="flex">
-              <ProjectCard
-                project={project}
-                variant="full"
-                className="w-full"
-              />
-            </li>
-          ))}
-        </ul>
+      <div className="relative left-1/2 w-screen max-w-[100vw] -translate-x-1/2 overflow-x-hidden">
+        <ProjectsCarousel />
+      </div>
 
+      <div className="mx-auto max-w-6xl">
         <aside className="mt-12 border-t border-border pt-10 text-center sm:text-left">
           <h2 className="text-xl font-semibold text-foreground">
             Have a project in mind?
