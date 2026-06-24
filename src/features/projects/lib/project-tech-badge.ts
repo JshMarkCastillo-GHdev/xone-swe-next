@@ -28,6 +28,11 @@ const EXPLICIT_TAG_STYLES: Record<string, string> = {
   Playwright: "border-emerald-200/90 bg-emerald-50 text-emerald-900",
   Jest: "border-rose-200/90 bg-rose-50 text-rose-900",
   Vercel: "border-slate-200/90 bg-slate-100 text-slate-800",
+  Base44: "border-violet-200/90 bg-violet-100 text-violet-900",
+  Prototype: "border-amber-200/90 bg-amber-50 text-amber-900",
+  "Web app": "border-sky-200/90 bg-sky-50 text-sky-900",
+  Mockup: "border-pink-200/90 bg-pink-50 text-pink-900",
+  Restaurant: "border-orange-200/90 bg-orange-50 text-orange-950",
   PostgreSQL: "border-blue-200/90 bg-blue-50 text-blue-950",
 };
 

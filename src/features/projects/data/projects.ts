@@ -183,6 +183,27 @@ export const projects: readonly Project[] = [
       "Vercel",
     ],
   },
+  {
+    id: "rahamen-digital-base44",
+    title: "Rahamen restaurant website",
+    summary:
+      "Base44 mockup for a food restaurant brand — menu highlights, story, hours, and visit or inquiry paths before a full production site.",
+    challenge:
+      "The restaurant needed a polished online presence to showcase the menu and location without waiting on a custom build or third-party listing limits.",
+    outcomes: [
+      "Clickable Base44 prototype for menu, branding, and guest-facing pages",
+      "Mobile-friendly mockup for quick stakeholder and staff review",
+      "Blueprint for a future ordering-ready restaurant website",
+    ],
+    category: "marketing-site",
+    leadEngineer: "Engr. Jhon Bert Villarosa",
+    liveHref: "https://rahamen.base44.app/",
+    liveLinkLabel: "mockup",
+    previewImageSrc: "/assets/projects/rahamen-digital-preview.png",
+    mobileSummary:
+      "Base44 mockup for Rahamen, a food restaurant brand. Guests can browse menu highlights, the brand story, hours, and location, then follow visit or inquiry paths — a clickable prototype before a full production ordering site.",
+    tags: ["Base44", "Restaurant", "Prototype", "Mockup"],
+  },
 ] as const;
 
 /** Homepage featured work — three client-facing case studies (excludes meta site entry). */
