@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -21,6 +22,11 @@ export function ProjectCard({
   className,
 }: ProjectCardProps) {
   const isCompact = variant === "compact";
+  const hasPreview = Boolean(project.previewImageSrc);
+  const showCaseStudyDetails = !isCompact && !hasPreview;
+  const maxTags = isCompact ? 3 : hasPreview ? 6 : project.tags.length;
+
+  const isFull = !isCompact;
 
   return (
     <article
@@ -80,17 +86,44 @@ export function ProjectCard({
         </p>
       ) : null}
 
-      <div className={cn("flex flex-1 flex-col", !isCompact && "min-h-0")}>
-        <p
-          className={cn(
-            "mt-3 text-sm leading-relaxed text-muted-foreground",
-            isCompact ? "flex-1" : "line-clamp-3 min-h-[4.5rem]",
-          )}
-        >
-          {project.summary}
-        </p>
+      {!isCompact && project.previewImageSrc ? (
+        <div className="relative mt-3 aspect-[16/10] w-full overflow-hidden rounded-md border border-border bg-muted/40">
+          <Image
+            src={project.previewImageSrc}
+            alt={`${project.title} website preview`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 92vw, 34rem"
+          />
+        </div>
+      ) : null}
 
-        {!isCompact ? (
+      <div className={cn("flex flex-col", isFull && "min-h-0 flex-1")}>
+        {isFull && hasPreview && project.mobileSummary ? (
+          <>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:hidden">
+              {project.mobileSummary}
+            </p>
+            <p className="mt-3 hidden text-sm leading-relaxed text-muted-foreground sm:line-clamp-2 sm:block">
+              {project.summary}
+            </p>
+          </>
+        ) : (
+          <p
+            className={cn(
+              "text-sm leading-relaxed text-muted-foreground",
+              isCompact
+                ? "mt-3 flex-1"
+                : hasPreview
+                  ? "mt-3 line-clamp-2"
+                  : "mt-3 line-clamp-3 min-h-[4.5rem]",
+            )}
+          >
+            {project.summary}
+          </p>
+        )}
+
+        {showCaseStudyDetails ? (
           <>
             <p className="mt-4 line-clamp-3 min-h-[4.5rem] text-sm leading-relaxed text-foreground/85">
               <span className="font-medium text-foreground">Challenge: </span>
@@ -107,15 +140,15 @@ export function ProjectCard({
               </ul>
             </div>
           </>
-        ) : (
+        ) : !isCompact ? null : (
           <p className="mt-3 line-clamp-2 text-sm text-muted-foreground">
             {project.outcomes[0]}
           </p>
         )}
       </div>
 
-      <div className={cn(!isCompact && "mt-auto pt-4")}>
-        <div className={cn(!isCompact && "min-h-[5.75rem]")}>
+      <div className={cn(isFull && "mt-auto pt-4")}>
+        <div className={cn(!isCompact && !hasPreview && "min-h-[5.75rem]")}>
           {!isCompact ? (
             <p className="text-xs font-medium uppercase tracking-wider text-xone-violet">
               Tech Stack
@@ -124,22 +157,24 @@ export function ProjectCard({
           <ul
             className={cn(
               "flex flex-wrap gap-2",
-              isCompact ? "mt-4" : "mt-2 min-h-[4.75rem] content-start",
+              isCompact
+                ? "mt-4"
+                : hasPreview
+                  ? "mt-2"
+                  : "mt-2 min-h-[4.75rem] content-start",
             )}
           >
-            {project.tags
-              .slice(0, isCompact ? 3 : project.tags.length)
-              .map((tag) => (
-                <li
-                  key={tag}
-                  className={cn(
-                    "rounded-md border px-2 py-0.5 text-xs font-medium",
-                    getProjectTagClassName(tag),
-                  )}
-                >
-                  {tag}
-                </li>
-              ))}
+            {project.tags.slice(0, maxTags).map((tag) => (
+              <li
+                key={tag}
+                className={cn(
+                  "rounded-md border px-2 py-0.5 text-xs font-medium",
+                  getProjectTagClassName(tag),
+                )}
+              >
+                {tag}
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -158,7 +193,7 @@ export function ProjectCard({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-sm font-medium text-xone-violet hover:underline"
             >
-              View live site
+              View {project.liveLinkLabel ?? "live site"}
               <ArrowUpRight className="size-4" aria-hidden />
             </a>
           ) : null}

@@ -14,6 +14,8 @@ export type Project = {
   title: string;
   /** Short card summary */
   summary: string;
+  /** Longer copy for preview cards on small screens (avoids empty shell space) */
+  mobileSummary?: string;
   /** Case-study context — challenge or client situation */
   challenge: string;
   /** Measurable or qualitative results */
@@ -27,6 +29,10 @@ export type Project = {
   href?: string;
   /** Optional live deployment URL */
   liveHref?: string;
+  /** Overrides the live link label (default: "View live site") */
+  liveLinkLabel?: string;
+  /** Live site screenshot shown in the portfolio card (path under `public/`) */
+  previewImageSrc?: string;
   tags: readonly string[];
 };
 
@@ -120,6 +126,9 @@ export const projects: readonly Project[] = [
       },
     ],
     liveHref: "https://lightbox-studio.vercel.app/",
+    previewImageSrc: "/assets/projects/lightbox-studio-preview.png",
+    mobileSummary:
+      "Full-stack studio website for photography and videography on Vercel. The mockup covers services, portfolio galleries, session booking, and partnerships — with a feature-based Next.js layout ready for Calendly, MongoDB, and Cloudinary integrations.",
     tags: [
       "Next.js",
       "TypeScript",
@@ -160,6 +169,9 @@ export const projects: readonly Project[] = [
     ],
     href: "https://github.com/JshMarkCastillo-GHdev/xone-swe-next",
     liveHref: "https://xone-software-solutions.vercel.app/",
+    previewImageSrc: "/assets/projects/xone-software-solutions-preview.png",
+    mobileSummary:
+      "Company marketing site for Xone Software Development — portfolio carousel, services, team, and email-first lead capture on Vercel. Rebuilt from a legacy Vite SPA into a static-first Next.js app with Playwright mobile and desktop E2E guardrails.",
     tags: [
       "Next.js",
       "TypeScript",
