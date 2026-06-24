@@ -32,7 +32,6 @@ const EXPLICIT_TAG_STYLES: Record<string, string> = {
   Prototype: "border-amber-200/90 bg-amber-50 text-amber-900",
   "Web app": "border-sky-200/90 bg-sky-50 text-sky-900",
   Mockup: "border-pink-200/90 bg-pink-50 text-pink-900",
-  Restaurant: "border-orange-200/90 bg-orange-50 text-orange-950",
   PostgreSQL: "border-blue-200/90 bg-blue-50 text-blue-950",
 };
 

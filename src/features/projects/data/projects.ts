@@ -202,7 +202,7 @@ export const projects: readonly Project[] = [
     previewImageSrc: "/assets/projects/rahamen-digital-preview.png",
     mobileSummary:
       "Base44 mockup for Rahamen, a food restaurant brand. Guests can browse menu highlights, the brand story, hours, and location, then follow visit or inquiry paths — a clickable prototype before a full production ordering site.",
-    tags: ["Base44", "Restaurant", "Prototype", "Mockup"],
+    tags: ["Base44", "Prototype", "Mockup"],
   },
 ] as const;
 
